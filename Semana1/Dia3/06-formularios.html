@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios</title>
+  </head>
+  <body>
+    <header>
+      <h1>Formularios</h1>
+    </header>
+    <main>
+      <section>
+        <h3>Formulario de registro</h3>
+        <form>
+          <fieldset>
+            <legend>Datos Obligatorios</legend>
+            <p>
+              <label for="nombres"> Nombres: </label>
+              <input 
+              placeholder="Ej.: Daniel" 
+              type="text" 
+              id="nombres" 
+              />
+            </p>
+            <p>
+              <label for="apellidos"> Apellidos: </label>
+              <input 
+              type="text" 
+              placeholder="Ej.:De la Cruz" 
+              id="apellidos" 
+              />
+            </p>
+            <p>
+              <label> E-mail </label>
+              <input 
+              type="email" 
+              placeholder="Ej.:jmontesinos@tecsup.edu.pe" 
+              />
+            </p>
+            <p>
+              <label>Edad</label>
+              <input 
+              type="number" 
+              placeholder="Ej.: 25"
+              min="0"
+              max="100"
+              >
+            </p>
+            <p>
+              <label>
+                Fecha:
+              </label>
+              <input type="date">
+            </p>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
