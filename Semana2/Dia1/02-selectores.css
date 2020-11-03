@@ -1,0 +1,28 @@
+h2{
+  color:red;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+section{
+  background-color:lightblue;
+}
+
+p{
+  color:darkslateblue;
+}
+
+article{
+  font-family:  Arial, Helvetica, sans-serif;
+}
+
+/* Esto es un selector de una clase */
+.destacado{
+  text-decoration: underline;
+  color:yellow;
+}
+
+/* selector para id */
+#contacto{
+  background-color: orange;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
