@@ -21,6 +21,8 @@
               placeholder="Ej.: Daniel" 
               type="text" 
               id="nombres" 
+              value=""
+              required
               />
             </p>
             <p>
@@ -53,7 +55,76 @@
               </label>
               <input type="date">
             </p>
+            <p>
+              <label>
+                Contraseña:
+              </label>
+              <input type="password" 
+              placeholder="Ingrese una contraseña segura"
+              >
+            </p>
           </fieldset>
+          <!-- datos adicionales -->
+          <fieldset>
+            <legend>Datos Adicionales</legend>
+            <p>
+              <label>Color Favorito:</label>
+              <input type="color">
+            </p>
+            <p>
+              <label>Adjuntar Foto: </label>
+              <input type="file">
+            </p>
+            <p>
+              <label>Indícanos tu genero: </label>
+              <input type="radio" name="genero"> Masculino
+              <input type="radio" name="genero"> Femenino
+              <input type="radio" name="genero"> No divulgar
+            </p>
+            <p>
+              <label>Cuentanos tus hobbies:</label>
+              <input type="checkbox" value="musica">Escuchar Música
+              <input type="checkbox">Manejar Bici
+              <input type="checkbox">Dotear
+              <input type="checkbox">Leer un Libro
+              <input type="checkbox">Tocar guitarra
+              <input type="checkbox">Correr
+              <input type="checkbox">Codear
+              <input type="checkbox">Ver Peliculitas
+              <input type="checkbox">Cocinar
+              <input type="checkbox">Conocer gente
+            </p>
+            <p>
+              <label>Selecciona tu departamento:</label>
+              <select>
+                <option disabled selected>--Selecciona tu Ciudad</option>
+                <option value="AR">Arequipa</option>
+                <option value="AN">Ancash</option>
+                <option value="AP">Apurimac</option>
+                <option value="CU">Cusco</option>
+                <option value="IC">Ica</option>
+                <option value="LI">Lima</option>
+                <option value="LO">Loreto</option>
+                <option value="TR">Trujillo</option>
+                <option value="TA">Tacna</option>
+                <option value="TU">Tumbes</option>
+              </select>
+            </p>
+            <p>
+              <label>Cuentanos acerca de ti</label>
+              <textarea rows="15" cols="60" placeholder="Escribe">
+              </textarea>
+            </p>
+            <p>
+              <label for="">
+                Ingresa la cantidad de miembros en tu familia
+              </label>
+              <input type="range">
+            </p>
+          </fieldset>
+          <!-- <input type="submit" value="Enviar Formulario"> -->
+          <button type="submit">Enviar Datos</button>
+          <input type="reset" value="Limpiar Formulario">
         </form>
       </section>
     </main>
