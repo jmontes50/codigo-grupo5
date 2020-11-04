@@ -15,10 +15,12 @@ li:last-child{
   color:green;
 }
 
+/* impar */
 tbody tr:nth-child(odd){
   background-color: lightgray;
 }
 
+/* par */
 .tabla1 tbody tr:nth-child(even){
   background-color: salmon;
 }
@@ -27,4 +29,26 @@ thead tr th:nth-of-type(1){
   background-color: red;
   color:white;
 }
+/* excepcion */
 
+p:not(#excepcion){
+  background-color: seagreen;
+}
+
+/* por atributos */
+
+input[type="text"]{
+  border-radius:5px;
+  background-color: turquoise;
+}
+
+/* hover */
+
+button:hover{
+  background-color:aqua;
+  color:white;
+}
+
+input[type="number"]::placeholder{
+  color:brown;
+}

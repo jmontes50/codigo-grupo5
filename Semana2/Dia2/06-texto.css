@@ -1,0 +1,36 @@
+@font-face{
+  font-family: "logotext";
+  src: url("./Bellania.otf")
+}
+
+.titulo{
+  font-family: 'Kanit', Helvetica, sans-serif;
+}
+
+h2{
+  font-family: "logotext";
+}
+
+.parrafo1{
+  font-family: 'Kanit';
+  font-weight: 100;
+}
+
+.parrafo2{
+  text-align:center;
+  line-height: 60px;
+  font-weight:bold;
+}
+
+.parrafo3{
+  font-family: 'Kanit';
+  font-weight: 100;
+  word-spacing: 25px;
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+a{
+  text-decoration: none;
+  color:skyblue;
+}
