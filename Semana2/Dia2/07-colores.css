@@ -1,0 +1,42 @@
+body{
+  background-image:linear-gradient(to left,blue, steelblue);
+  color:white;
+}
+.red{
+  color:red;
+}
+
+.blue{
+  color:blue;
+}
+
+.yellow{
+  color:yellow;
+}
+
+/* 3 pares rojo, verde, azul, va de 00 a FF cada par */
+.azulhex{
+  color:#0000ff;
+}
+
+.violetahex{
+  color:#ff00ff;
+}
+
+.grishex{
+  color:#aaa;
+}
+
+/* rgb */
+
+.rosado{
+  color:rgb(255,185,200);
+}
+
+.mostaza{
+  color:rgb(255,210,20);
+}
+
+.alpha{
+  background-color: rgba(240,100,177,0.5);
+}
