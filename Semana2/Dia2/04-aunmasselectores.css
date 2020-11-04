@@ -1,0 +1,30 @@
+/* Un selector de hijos a cualquier nivel 
+Todos los hijos o nietos ... o tataranietos LI
+que es ten dentro de un UL*/
+ul li{
+  text-decoration: underline;
+  color:red;
+}
+
+/*
+  Selector de hijos en 1er nivel, o hijos directos
+  o hijos inmediatos, por ejemplo en este caso
+  los hijos directos de OL, los que sean nietos
+  no aplicarán
+*/
+
+ol > li{
+  color:steelblue;
+} 
+
+/* Compartir estilos entre los elementos que esten separados por coma
+En este caso h1 y h2 */
+h1, h2{
+  color:purple;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* h2{
+  color:purple;
+  font-family:Arial, Helvetica, sans-serif;
+} */

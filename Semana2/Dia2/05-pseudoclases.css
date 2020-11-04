@@ -1,0 +1,30 @@
+/* el elemento LI 1er hijo */
+li:first-child{
+  color:red;
+  text-decoration: underline;
+}
+
+/* el hijo:nthchld(posicion) */
+li:nth-child(3){
+  color:gray;
+  font-weight: bold;
+}
+
+/* el ultimo hijo LI*/
+li:last-child{
+  color:green;
+}
+
+tbody tr:nth-child(odd){
+  background-color: lightgray;
+}
+
+.tabla1 tbody tr:nth-child(even){
+  background-color: salmon;
+}
+
+thead tr th:nth-of-type(1){
+  background-color: red;
+  color:white;
+}
+
