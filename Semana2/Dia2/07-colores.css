@@ -40,3 +40,19 @@ body{
 .alpha{
   background-color: rgba(240,100,177,0.5);
 }
+
+/* hsl */
+
+.hsl1{
+  /* hsl(matizº, saturacion, iluminación */
+   /* hsla(matizº, saturacion, iluminación, alpha */
+  background-color:hsl(270, 100%, 50%);
+}
+
+.hsl2{
+  background-color: hsl(248, 53%, 60%);
+}
+
+.hsl3{
+  background-color: hsla(66, 67%, 57%, 0.5);
+}

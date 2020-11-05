@@ -1,0 +1,26 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.section1{
+  background-color:#34ff50;
+  height: 300px;
+}
+
+.section2{
+  height:500px;
+  background-color:lightgray;
+  background-image: url('./fondo.jpg');
+  background-size:cover;
+  background-position: center;
+  /* background-attachment: fixed;
+  overflow:scroll; */
+}
+
+.section3{
+  height:1000px;
+  background-image:url('https://picsum.photos/300/300');
+  background-repeat: no-repeat;
+}
