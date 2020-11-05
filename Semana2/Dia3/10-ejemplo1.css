@@ -20,6 +20,9 @@
   padding:15px 0;
   margin:20px 0;
   border-radius: 10px;
+  /* sombra-elevación */
+  /* box-shadow: ejex ejey blur color */
+  box-shadow:3px 3px 5px black;
 }
 
 form > label{
