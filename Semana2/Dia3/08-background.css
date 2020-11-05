@@ -20,7 +20,27 @@
 }
 
 .section3{
-  height:1000px;
+  height:500px;
   background-image:url('https://picsum.photos/300/300');
   background-repeat: no-repeat;
+}
+
+.section4, .section5{
+  height:500px;
+}
+
+/* gradientes */
+
+.section4{
+  /* linear-gradient(dirección, */
+  background-image:linear-gradient(to top, #ff4456, #6748aa);
+}
+
+.section5{
+  /* v25 de Chrome, para arriba esto funciona.
+  -webkit-linear-gradient -moz-  */
+  /* se le puede poner un background simple para versiones
+  antiguas de navegadores */
+  background-color:#ddaa43;
+  background-image:radial-gradient(circle,#ddaa43,#45ff20);
 }
