@@ -1,0 +1,30 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.contenedor{
+  width:600px;
+  height:600px;
+  background-color: #555;
+  margin:50px auto 0 auto; /*top right bottom left*/
+  box-shadow:6px 6px 15px gray;
+}
+
+.circulo{
+  width:100px;
+  height:100px;
+  background-color: #ff2244;
+  border-radius:50%;
+  position:relative;
+  /* left:50%;
+  top:50%; */
+  /* alternativa1 */
+  top:calc(50% - 50px); /*50%-50px) esto no lo reconoce, agregar espacio*/
+  left:calc(50% - 50px);
+  /* alternativa2 */
+  /* top:50%;
+  left:50%;
+  transform: translate(-50%, -50%); */
+}
