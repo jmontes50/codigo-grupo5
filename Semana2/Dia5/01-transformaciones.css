@@ -1,0 +1,39 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.section1{
+  height:500px;
+  width: 500px;
+  border:1px solid crimson;
+  margin:50px auto;
+}
+
+.cuadrado{
+  width:100px;
+  height:100px;
+  background-color: #1122ff;
+}
+
+.cuadrado:hover{
+  transform: scale(1.1, 2) rotate(60deg);
+  filter:blur(2px);
+}
+
+.circulo{
+  width:100px;
+  height:100px;
+  background-color: darkmagenta;
+  border-radius:50%;
+  margin:0 auto;
+  /* transform: translate(50px,-50px); */
+  /* y si colocamos porcentajes en translate, a comparación de otras propiedades, pues toma en cuenta el tamaño del elemento */
+  /* transform: translate(100%,100%); */
+}
+
+.circulo:hover{
+  transform: translate(50px,50px);
+}
+

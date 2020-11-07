@@ -40,8 +40,31 @@ body{
   background-position: center;
 }
 
-.contenedor_info{
+.contenedor__info{
   height:50%;
   text-align: center;
   padding-top: 50px;
+}
+
+.contenedor__titulo{
+  font-size:20px;
+  font-weight:400;
+}
+
+.contenedor__boton{
+  cursor:pointer;
+  margin:35px 0 0 0;
+  border:none;
+  outline:none;
+  color:white;
+  background-color: #0270ee;
+  border-bottom: 4px solid darkgrey;
+  border-radius:4px;
+  padding:10px;
+  text-transform: uppercase;
+}
+
+.contenedor__boton:hover{
+  background-color: #00499c;
+  margin:33px 0 0 0;
 }
