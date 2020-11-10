@@ -1,0 +1,88 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.contenedor {
+	display: flex;
+	height: 60px;
+	/*
+		justify-content: alinea los elementos en el eje principal
+		¿Cuál es el eje principal?
+		
+		Todo depende de la propiedad:
+		flex-direction: row; (valor por defecto cuando se colocar flex)
+		row: Todos los hijos flexibles se ubican en una sola fila (uno al costado del otro)
+		row: El eje principal es el eje X (horizontal)
+	*/
+	/* justify-content: center; */
+	/* justify-content: flex-end; */
+	/* justify-content: space-between; */
+	/* justify-content: space-around; */
+	justify-content: space-evenly;
+
+	/*
+	align-items: propiedad que alínea los elementos en el eje secundario;
+	¿Cuál es el eje secundario?
+	- cuando flex-direction:row => el eje secundario es Y
+	- cuando flex-direction:column => el eje secundario es X
+	*/
+	align-items: center;
+
+	background-color: darkred;
+}
+
+.contenedor > div {
+	/* width: 150px; */
+	flex: 1;
+	height: 20px;
+}
+div.hijo-2 {
+	flex: 3;
+}
+
+.contenedor > div:nth-child(even) {
+	background-color: #eee;
+}
+
+.contenedor > div:nth-child(odd) {
+	background-color: #ccc;
+}
+
+.noticias {
+	background-color: #ffcfcf;
+	height: calc(100vh - 60px);
+	display: flex;
+}
+.noticias__menu {
+	width: 240px;
+}
+.noticias__contenedor {
+	flex: 1;
+
+	display: flex;
+
+	/*
+		asumamos que flex-direction: row;
+	*/
+	/*
+	 Otra propiedad por defecto en los padres flexibles es:
+	 flex-wrap: no-wrap;
+	 ¿Qué significa?
+	 nowrap => los elementos nunca colapsan(es decir, generan nuevas filas)
+	 wrap => los elementos colapsan cuando el ancho del padre es superado por el ancho
+	 de los hijos
+	*/
+	flex-wrap: wrap;
+}
+
+.noticias__noticia {
+	width: 200px;
+	background-color: cornflowerblue;
+	height: 200px;
+}
+
+body {
+	min-height: 100vh;
+}
