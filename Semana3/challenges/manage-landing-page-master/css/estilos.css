@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400;500;700&display=swap");
+
+:root {
+  --wrapper: 1440px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Be Vietnam", sans-serif;
+}
+.header {
+  max-width: var(--wrapper);
+  margin: 0 auto;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.header__nav {
+  flex: 1;
+  justify-content: center;
+}
+.header__list {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.fila {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: var(--wrapper);
+  margin: 0 auto;
+}
+.columna {
+  flex: 50%;
+}
