@@ -5,6 +5,7 @@
 	--color-naranja: hsl(12, 88%, 59%);
 	--color-plomo-claro: hsl(0, 0%, 98%);
 	--color-rosado-claro: hsl(13, 100%, 96%);
+	--color-blure-very-dark: hsl(233, 12%, 13%);
 }
 
 * {
@@ -104,8 +105,21 @@ body {
 .comment__name {
 	margin-bottom: 1rem;
 }
+.comments__button {
+	text-align: center;
+}
 .header__menu {
 	display: none;
+}
+.footer__title {
+	background-color: var(--color-naranja);
+}
+.wrapper {
+	max-width: var(--ancho-maximo);
+	margin: 0 auto;
+}
+.footer__info {
+	background-color: var(--color-blure-very-dark);
 }
 
 @media screen and (max-width: 1440px) {

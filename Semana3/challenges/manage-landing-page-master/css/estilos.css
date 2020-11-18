@@ -12,8 +12,11 @@
 	box-sizing: border-box;
 }
 body {
-	padding: 2rem;
+	/* padding: 5rem; */
 	font-family: "Be Vietnam", sans-serif;
+	background-image: url("./../images/bg-tablet-pattern.svg");
+	background-repeat: no-repeat;
+	background-position: calc(100% + 10rem) -15rem;
 }
 .header {
 	max-width: var(--wrapper);
@@ -51,9 +54,26 @@ body {
 	flex: 50%;
 	max-width: 50%;
 }
+.main__banner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 .main__banner img {
 	max-width: 100%;
+}
+.middle {
+	background-image: url("./../images/bg-tablet-pattern.svg");
+	background-repeat: no-repeat;
+	position: absolute;
+	/* background-color: #222; */
+	height: 700px;
+	width: 1000px;
+	top: 50rem;
+	left: -20rem;
+	background-position: 0 0;
+	z-index: -1;
 }
 
 .media {
@@ -89,7 +109,49 @@ body {
 	color: white;
 	border-radius: 1rem;
 }
+.comments__title {
+	text-align: center;
+	margin-bottom: 3rem;
+}
+.comments__container {
+	display: flex;
+}
+.comment {
+	flex: 1;
+	/* background-color: red; */
+	padding: 1rem;
+}
+.comment__box {
+	background-color: #f8f8f8;
+	height: 100%;
+	text-align: center;
+	border-radius: 2px;
+	padding: 0 0.5rem 0.5rem 0.5rem;
+}
 
+.comment__img img {
+	width: 4rem;
+	height: 4rem;
+	transform: translate(0, -50%);
+}
+.comment__name {
+	margin-bottom: 1rem;
+}
+.message {
+	background-color: var(--color-primary);
+	height: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: url("./../images/bg-simplify-section-desktop.svg");
+}
+.message__wrapper {
+	max-width: var(--wrapper);
+	margin: 0 auto;
+	flex: 1;
+	display: flex;
+	justify-content: space-between;
+}
 @media screen and (max-width: 768px) {
 	.columna {
 		flex: 100%;
