@@ -14,8 +14,21 @@
 	box-sizing: border-box;
 	padding: 0;
 }
+.bandita {
+	height: 700px;
+	width: 700px;
+	position: absolute;
+	z-index: -10;
+	top: 50rem;
+	background-image: url("./../images/bg-tablet-pattern.svg");
+	background-repeat: no-repeat;
+	background-position: -20rem 0;
+}
 body {
 	font-family: "Be Vietnam", sans-serif;
+	background-image: url("./../images/bg-tablet-pattern.svg");
+	background-repeat: no-repeat;
+	background-position: calc(100% + 5rem) -15rem;
 }
 
 .header {
@@ -161,10 +174,38 @@ body {
 	width: 100%;
 	text-align: right;
 }
+.footer__logo {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.footer__social {
+	display: flex;
+	justify-content: space-between;
+}
+.btn {
+	color: var(--color-plomo-claro);
+	padding: 0.5rem 1.2rem;
+	background-color: var(--color-naranja);
+	text-decoration: none;
+	border-radius: 1.5rem;
+	box-shadow: var(--color-naranja) 0px 4px 10px;
+}
+.footer__title .btn {
+	background-color: white;
+	color: var(--color-naranja);
+}
 
 @media screen and (max-width: 1440px) {
-	body {
+	.header,
+	.main,
+	.comments,
+	.wrapper.title {
 		padding: 0 1.5rem;
+	}
+	.wrapper.info {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
 	}
 }
 @media screen and (max-width: 768px) {
@@ -199,5 +240,37 @@ body {
 	}
 	.header__menu {
 		display: block;
+		cursor: pointer;
+	}
+	.header * {
+		transition: 0.3s all ease-in;
+	}
+
+	.header.open {
+		flex-wrap: wrap;
+		height: fit-content;
+		padding-top: 2rem;
+	}
+	.header.open .header__logo {
+		order: 1;
+	}
+	.header.open .header__menu {
+		order: 2;
+	}
+	.header.open .header__nav {
+		display: flex;
+		order: 3;
+		width: 100%;
+	}
+	.header.open .header__list {
+		width: 100%;
+		background-color: #fff;
+		margin-top: 1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 1.5rem 0;
+		border-radius: 5px;
+		box-shadow: #bbb 0px 0px 10px;
 	}
 }
