@@ -13,20 +13,17 @@ function imprimirMayor(arreglo = [], nombre = "") {
       mayor = arreglo[i];
     }
   }
-
   // if (nombre === "" || arreglo.length === 0) {
   //   console.error("No se han enviado los parametros a la función");
   // } else {
   //   console.log(`La mayor de las ${nombre} es ${mayor}`);
   // }
-  
+
   if (nombre !== "" && arreglo.length > 0) {
     console.log(`La mayor de las ${nombre} es ${mayor}`);
   } else {
     console.error("No se han enviado los parametros a la función");
   }
-
-
 }
 
 let notas = [10, 15, 12, 05, 20, 11.5];
