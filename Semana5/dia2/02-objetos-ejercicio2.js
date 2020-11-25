@@ -399,6 +399,84 @@ let peliculas = [
     "title": "Batman: Death in the Family"
   }
 ]
+let generos = [
+  {
+    "id": 28,
+    "name": "Acción"
+  },
+  {
+    "id": 12,
+    "name": "Aventura"
+  },
+  {
+    "id": 16,
+    "name": "Animación"
+  },
+  {
+    "id": 35,
+    "name": "Comedia"
+  },
+  {
+    "id": 80,
+    "name": "Crimen"
+  },
+  {
+    "id": 99,
+    "name": "Documental"
+  },
+  {
+    "id": 18,
+    "name": "Drama"
+  },
+  {
+    "id": 10751,
+    "name": "Familia"
+  },
+  {
+    "id": 14,
+    "name": "Fantasía"
+  },
+  {
+    "id": 36,
+    "name": "Historia"
+  },
+  {
+    "id": 27,
+    "name": "Terror"
+  },
+  {
+    "id": 10402,
+    "name": "Música"
+  },
+  {
+    "id": 9648,
+    "name": "Misterio"
+  },
+  {
+    "id": 10749,
+    "name": "Romance"
+  },
+  {
+    "id": 878,
+    "name": "Ciencia ficción"
+  },
+  {
+    "id": 10770,
+    "name": "Película de TV"
+  },
+  {
+    "id": 53,
+    "name": "Suspense"
+  },
+  {
+    "id": 10752,
+    "name": "Bélica"
+  },
+  {
+    "id": 37,
+    "name": "Western"
+  }
+]
 
 /**
  * Función que retorna la cantidad de peliculas en el idioma
@@ -413,12 +491,116 @@ let peliculas = [
  * Diego version 😁
  */
 
+// const peliculasEnIngles = () => {
+//   let cantidad = 0;
+//   for (let i = 0; i < peliculas.length; i++) {
+//     if (peliculas[i]["original_language"] === "en") {
+//       cantidad++;
+//     }
+//   }
+//   return cantidad;
+// }
+
+/**
+ * Alejandría version 😉
+ */
+
+// const peliculasIngles = () => {
+//   numPeliculas = 0;
+//   peliculas.filter((pelicula) => {
+//     if (pelicula.original_language == "en") {
+//       numPeliculas++;
+//     }
+//   });
+//   return numPeliculas;
+// }
+
+/**
+ * Kevin version 😶
+ */
+// const peliculasIngles = () => {
+//   contador = 0;
+//   const peliculasIngles = peliculas.filter((pelicula) => {
+//     if (pelicula.original_language == "en") {
+//       contador++;
+//     }
+//   });
+//   console.log(contador);
+// }
+
+/**
+ * El profe version 🤯
+ */
+
 const peliculasEnIngles = () => {
-  let cantidad = 0;
-  for (let i = 0; i < peliculas.length; i++) {
-    if (peliculas[i]["original_language"] === "en") {
-      cantidad++;
+  const ingles = peliculas.filter((peli) => {
+    if (peli.original_language === "en") {
+      return peli
     }
+  });
+  return ingles.length;
+}
+console.log(`Peliculas en inglés ${peliculasEnIngles()}`);
+
+
+/**
+ * Función que imprime los géneros que tiene una película.
+ * Como parámetro, pasar el título (original_title de la película)
+ * @param {*} title 
+ * HINT: Usar find para encontrar la película
+ * HINT: Usar filter con el arreglo de géneros de la película
+ */
+const printGenresByTitleMovie = (title) => {
+  const objPelicula = peliculas.find((peli) => {
+    if (peli.original_title === title) {
+      return peli
+    }
+  });
+  if (objPelicula) {
+    objPelicula.genre_ids.forEach((id) => {
+      const objGenero = generos.find((gen) => {
+        if (gen.id === id) {
+          return gen;
+        }
+      });
+      if (objGenero) {
+        console.log(`Genero: ${objGenero.name}`);
+      }
+    })
   }
-  return cantidad;
+}
+printGenresByTitleMovie("Hard Kill");
+
+
+/**
+ * Función que imprime las peliculas que tengan
+ * la mayor y menor cantidad de votos (vote_count)
+ */
+const mayorYMenor = () => {
+
+}
+
+/**
+ * Función que imprime las peliculas (objetos) que tengan la mayor
+ * cantidad de géneros.
+ * Por ejemplo, si la pelicula que más géneros tenga es 5 GÉNEROs,
+ * mostrar todas las películas que tengan 5 géneros
+ */
+const mayorCantidadDeGeneros = () => {
+
+}
+
+
+/**
+ * Función que retorna un ARREGLO DE PELICULAS con cada objeto que tenga 
+ * el atributo "generos" que va a ser un arreglo de strings con los generos de la 
+ * película
+ * ejemplo:
+ * generos:["drama","acción","aventura"]
+ * OJO: cada objeto película debe tener todos los atributos originales del arreglo 
+ * "peliculas" más el atributo géneros
+ * HINT: usar "map"
+ */
+const peliculasConGeneros = () => {
+
 }
