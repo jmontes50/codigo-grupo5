@@ -46,19 +46,58 @@ console.log(`${diasParaNavidad.toFixed(2)} días para navidad`);
  * Sobre el siguiente algoritmo, mostrar la cantidad de:
  * DIAS, HORAS, MINUTOS Y SEGUNDOS PARA LA NAVIDAD
  * HINT: Usar módulos para los días horas, mobnutos y segundos
- * módulo = % 
+ * módulo = %
  */
-setInterval(() => {
-  let fechaActual = new Date();
-  let navidad = new Date(2020, 11, 25, 0, 0, 0);
-  let navidadMenosHoy = navidad - hoy;
-  let segundos = (navidad - fechaActual) / 1000;
-  let dias = segundos / 86400;
-  segundos = segundos % 86400;
-  let horas = segundos / 3600;
-  segundos = segundos % 3600;
-  let minutos = segundos / 60;
-  segundos = segundos % 60;
+/**
+ * FRANCO VERSION 😀
+ */
+// setInterval(() => {
+//   let hoy = new Date();
+//   let navidad = new Date(2020, 11, 25, 0, 0, 0);
+//   let dias = (navidad - hoy) / (1000 * 60 * 60 * 24);
+//   dias = Math.floor(dias);
+//   let horas = (navidad - hoy) / (1000 * 60 * 60);
+//   horas = Math.floor(horas - (dias * 24));
+//   let minutos = (navidad - hoy) / (1000 * 60);
+//   minutos = Math.floor(minutos - (horas * 60) - (dias * 24 * 60));
+//   let segundos = (navidad - hoy) / (1000);
+//   segundos = Math.floor(segundos - ((minutos * 60) + (horas * 60 * 60) + (dias * 24 * 60 * 60)));
+//   console.log(`${dias} dias; ${horas} horas; ${minutos} minutos; ${segundos} segundos`);
+// }, 1000)
 
-  console.log(`Quedan ${segundos.toFixed(2)} segundos , ${minutos.toFixed(2)} minutos , ${horas.toFixed(2)} horas , ${dias.toFixed(2)} dias para que venga San Ricolas`);
-}, 1000);
+/**
+ * Kevin version 😁
+ */
+// setInterval(() => {
+//   let fechaActual = new Date();
+//   let navidad = new Date(2020, 11, 25, 0, 0, 0);
+//   let duracion = navidad - fechaActual;
+//   let milisegundos = 1000;
+//   let msMinuto = milisegundos * 60;
+//   let msHora = msMinuto * 60;
+//   let msDia = msHora * 24;
+//   let diasRestantes = Math.floor(duracion / msDia);
+//   let horasRestantes = Math.floor((duracion % msDia) / msHora);
+//   let minutosRestantes = Math.floor((duracion % msHora) / msMinuto);
+//   let segundosRestantes = Math.floor((duracion % msMinuto) / milisegundos);
+//   // console.log(dias);
+//   console.log(
+//     `Quedan ${diasRestantes} dias ${horasRestantes} horas ${minutosRestantes} minutos ${segundosRestantes}  segundos para Navidad`
+//   );
+// }, 1000);
+
+/**
+ * Diego Pacheco Version 😉
+ */
+
+// setInterval(() => {
+//   let fechaActual = new Date();
+//   let navidad = new Date(2020, 11, 25, 0, 0, 0);
+//   tiempoFaltante = (navidad - fechaActual) / 1000;
+//   let dias = Math.floor(tiempoFaltante / (24 * 3600));
+//   let horas = Math.floor((tiempoFaltante / 3600) - dias * 24);
+//   let minutos = Math.floor(tiempoFaltante / 60 - (dias * 24 * 60) - (horas * 60));
+//   let segundos = (tiempoFaltante - (dias * 24 * 3600) - (horas * 3600) - (minutos * 60)).toFixed(0);
+
+//   console.log(`${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`);
+// }, 1000);
