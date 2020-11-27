@@ -109,3 +109,9 @@ setInterval(() => {
 // unaTabla.border = "2";
 // unTd.colspan = "4";
 // unInput.value = "";
+
+/**
+ * element.getAttribute("nombreDelAtributo")
+ * Retorna el valor del atributo de un elemento
+ */
+console.log(imagen.getAttribute("src"));
