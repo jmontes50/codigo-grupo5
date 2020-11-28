@@ -5,10 +5,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    li {
+      cursor: pointer;
+    }
+
+    li:hover {
+      text-decoration: underline;
+    }
+
+    .circulo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: crimson;
+    }
+  </style>
 </head>
 
 <body>
 
+  <button class="" id="btnAlerta">
+    MOSTRAR ALERTA
+  </button>
+  <button class="" id="btnEvento">
+    IMPRIMIR EVENTO
+  </button>
+  <hr>
+  <ul>
+    <li>Libro 1</li>
+    <li>Libro 2</li>
+    <li>Libro 3</li>
+  </ul>
+
+  <div id="divCirculo" class="circulo"></div>
+
+  <a href="https://www.google.com.pe" id="linkGoogle">Ir a Google</a>
+
+  <script src="./01-eventos.js"></script>
 </body>
 
 </html>
