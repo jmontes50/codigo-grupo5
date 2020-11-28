@@ -478,7 +478,7 @@ let generos = [
   }
 ]
 let tarjetas = document.getElementById("tarjetas");
-
+let aside = document.getElementById("aside");
 /**
  * Función que agrega el atributo "generos" que es un arreglo el cual contiene
  * los géneros de las películas
@@ -499,36 +499,39 @@ const agregarGeneros = () => {
   });
   console.log(peliculas);
 }
-agregarGeneros();
-
 const dibujarTarjetas = () => {
   peliculas.forEach((peli) => {
-    let card = document.createElement("div");
-    card.innerHTML = `<div class="foto">
-                        <img src="http://placehold.it/250X250" alt="">
-                      </div>`;
-    let texto = document.createElement("div");
-    texto.innerHTML = `<h3>${peli.title}</h3>
-                      <h6>${peli.release_date}</h6>
-                      <p>
-                        ${peli.overview}
-                      </p>`;
-    let generosDiv = document.createElement("div");
     let botonesGeneros = "";
     peli.generos.forEach((gen) => {
-      botonesGeneros = botonesGeneros + `<button>${gen}</button>`;
+      botonesGeneros = botonesGeneros + `<button>${gen}</button> `;
     });
-    generosDiv.innerHTML = botonesGeneros;
-
-    texto.classList.add("texto");
-    generosDiv.classList.add("generos")
-    card.classList.add("tarjeta");
-
-    texto.appendChild(generosDiv);
-    card.appendChild(texto);
-    tarjetas.appendChild(card);
-
     
+    let card = document.createElement("div");
+    card.classList.add("tarjeta");
+    card.innerHTML = `<div class="foto">
+    <img src="http://placehold.it/250X250" alt="">
+    </div>
+    <div class="texto">
+    <h3>${peli.title}</h3>
+    <h6>${peli.release_date}</h6>
+    <p>
+    ${peli.overview}
+    </p>
+    <div class="generos">
+    ${botonesGeneros}
+    </div>
+    </div>`;
+    tarjetas.appendChild(card);
   })
 }
+const dibujarCategorias = () => {
+  generos.forEach((gen) => {
+    let button = document.createElement("button");
+    button.innerText = gen.name.toUpperCase();
+    aside.appendChild(button);
+  })
+}
+
+agregarGeneros();
 dibujarTarjetas();
+dibujarCategorias();
