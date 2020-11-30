@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+      padding: 0;
+    }
+
+    body {
+      background-color: #444;
+      font-family: sans-serif;
+    }
+
+    form {
+      background-color: white;
+      padding: 2em;
+      max-width: 700px;
+      margin: 0 auto;
+      border-radius: 1em;
+    }
+
+    fieldset {
+      padding: 0.5em;
+    }
+
+    p {
+      margin-bottom: 0.3em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form>
+    <fieldset>
+      <legend>FORMULARIO DE REGISTRO DE VEHICULOS</legend>
+      <p>
+        <label for="">Placa:</label>
+        <input type="text" placeholder="Ejm: VA0-123">
+      </p>
+      <p>
+        <label for="">Color:</label>
+        <select name="" id="">
+          <option value="0">--Seleccione Color--</option>
+          <option value="">Rojo</option>
+          <option value="">Gris</option>
+          <option value="">Negro</option>
+        </select>
+      </p>
+      <p>
+        <label for="">Estado</label>
+        <br>
+        <label for="radioNuevo">Nuevo:</label>
+        <input type="radio" name="radioEstado" id="radioNuevo">
+        <label for="radioUsado">Usado:</label>
+        <input type="radio" name="radioEstado" id="radioUsado">
+      </p>
+      <p>
+        <label for="">Observaciones</label>
+        <textarea name="" id="" cols="30" rows="10"
+         placeholder="Coloque algunas observaciones"></textarea>
+      </p>
+      <p>
+        <button>Registrar Vehiculo</button>
+        <button>Cancelar</button>
+      </p>
+    </fieldset>
+  </form>
+  <script src="./01-eventos-forms.js"></script>
+</body>
+
+</html>
