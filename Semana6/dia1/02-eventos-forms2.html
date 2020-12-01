@@ -36,12 +36,25 @@
     .errorFormulario {
       border: 4px solid crimson;
     }
+
+    .contenedor {
+      background-color: white;
+      padding: 1em;
+      text-align: center;
+      max-width: 700px;
+      margin: 2em auto 0 auto;
+      border-radius: 1em;
+    }
+
+    table {
+      width: 100%;
+    }
   </style>
 </head>
 
 <body>
 
-  <form>
+  <form id="formPlatos">
     <fieldset>
       <legend>Crear Plato</legend>
       <p>
@@ -64,9 +77,30 @@
           <option value="0">-Seleccione Categoría-</option>
         </select>
       </p>
+      <p>
+        <button type="submit">Registrar Plato</button>
+      </p>
 
     </fieldset>
   </form>
+  <section class="contenedor">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Tipo</th>
+          <th>Categoría</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <tr>
+          <td colspan="5">NO HAY PLATOS REGISTRADOS</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
 
   <script src="./02-eventos-forms2.js"></script>
