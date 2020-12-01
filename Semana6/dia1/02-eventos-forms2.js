@@ -31,14 +31,24 @@ const llenarTipos = () => {
 llenarTipos();
 
 const llenarCategoriasPorId = (idTipo) => {
-
+  if (idTipo === 0) {
+    selectCategoria.innerHTML = "<option value='0'>-Seleccione Categoria-</option>";
+    return;
+  }
+  selectCategoria.innerHTML = "";
+  
   let categoriasPorTipo = categorias.filter((cat) => {
     if (cat.idTipo === idTipo) {
       return cat;
     }
   });
-  
-  
+
+  categoriasPorTipo.forEach((cat) => {
+    let optionCat = document.createElement("option");
+    optionCat.innerText = cat.nombreCategoria;
+    optionCat.value = cat.idCategoria;
+    selectCategoria.appendChild(optionCat);
+  })
 
 }
 
