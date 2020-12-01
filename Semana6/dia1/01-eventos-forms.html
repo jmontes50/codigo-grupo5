@@ -32,6 +32,10 @@
     p {
       margin-bottom: 0.3em;
     }
+
+    .errorFormulario {
+      border: 4px solid crimson;
+    }
   </style>
 </head>
 
@@ -57,13 +61,13 @@
         <label for="">Estado</label>
         <br>
         <label for="radioNuevo">Nuevo:</label>
-        <input type="radio" name="radioEstado" id="radioNuevo">
+        <input type="radio" name="radioEstado" id="radioNuevo" checked>
         <label for="radioUsado">Usado:</label>
         <input type="radio" name="radioEstado" id="radioUsado">
       </p>
       <p>
         <label for="">Observaciones</label>
-        <textarea name="" id="" cols="30" rows="10" placeholder="Coloque algunas observaciones"></textarea>
+        <textarea name="" id="textObs" cols="30" rows="10" placeholder="Coloque algunas observaciones"></textarea>
       </p>
       <p>
         <button type="submit">Registrar Vehiculo</button>
