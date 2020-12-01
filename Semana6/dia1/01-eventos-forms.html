@@ -37,20 +37,20 @@
 
 <body>
 
-  <form>
+  <form id="formRegistro">
     <fieldset>
       <legend>FORMULARIO DE REGISTRO DE VEHICULOS</legend>
       <p>
         <label for="">Placa:</label>
-        <input type="text" placeholder="Ejm: VA0-123">
+        <input type="text" placeholder="Ejm: VA0-123" id="inputPlaca">
       </p>
       <p>
         <label for="">Color:</label>
-        <select name="" id="">
+        <select name="" id="selectColor">
           <option value="0">--Seleccione Color--</option>
-          <option value="">Rojo</option>
-          <option value="">Gris</option>
-          <option value="">Negro</option>
+          <option value="1">Rojo</option>
+          <option value="2">Gris</option>
+          <option value="3">Negro</option>
         </select>
       </p>
       <p>
@@ -63,12 +63,11 @@
       </p>
       <p>
         <label for="">Observaciones</label>
-        <textarea name="" id="" cols="30" rows="10"
-         placeholder="Coloque algunas observaciones"></textarea>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Coloque algunas observaciones"></textarea>
       </p>
       <p>
-        <button>Registrar Vehiculo</button>
-        <button>Cancelar</button>
+        <button type="submit">Registrar Vehiculo</button>
+        <button type="button">Cancelar</button>
       </p>
     </fieldset>
   </form>
