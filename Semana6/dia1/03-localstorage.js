@@ -14,9 +14,7 @@ formPreferencias.onsubmit = (e) => {
    * retorna un objeto JSON en formato STRING
    */
   let objString = JSON.stringify(objPreferencias);
-
   localStorage.setItem("preferencias", objString);
-
 }
 
 inputColor.onchange = (e) => {
@@ -38,9 +36,15 @@ const verificarStorage = () => {
    * localStorage.getItem("clave"), retorna el valor que tiene 
    * esa clave, si no hay ningún valor con esa clave, retorna NULL
    */
-  let colorStorage = localStorage.getItem("colorFavorito");
-  if (colorStorage) {
-    inputColor.value = colorStorage;
+  let preferencias = localStorage.getItem("preferencias");
+  if (preferencias) {
+    /**
+     * JSON.parse(obj_en_formato_string)
+     * Convierte un string en un objeto JSON genuino
+     */
+    let preferenciasJSON = JSON.parse(preferencias);
+    inputColor.value = preferenciasJSON.color;
+    inputTamanio.value = preferenciasJSON.tamanio;
   }
 
 }
