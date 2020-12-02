@@ -8,7 +8,6 @@ formPreferencias.onsubmit = (e) => {
     color: inputColor.value,
     tamanio: inputTamanio.value
   }
-
   /**
    * JSON.stringify(un_obj_json),
    * retorna un objeto JSON en formato STRING
