@@ -1,4 +1,24 @@
 const inputColor = document.getElementById("inputColor");
+const inputTamanio = document.getElementById("inputTamanio");
+const formPreferencias = document.getElementById("formPreferencias");
+
+formPreferencias.onsubmit = (e) => {
+  e.preventDefault();
+  let objPreferencias = {
+    color: inputColor.value,
+    tamanio: inputTamanio.value
+  }
+
+  /**
+   * JSON.stringify(un_obj_json),
+   * retorna un objeto JSON en formato STRING
+   */
+  let objString = JSON.stringify(objPreferencias);
+
+  localStorage.setItem("preferencias", objString);
+
+}
+
 inputColor.onchange = (e) => {
   console.log(inputColor.value);
   /**
@@ -8,3 +28,20 @@ inputColor.onchange = (e) => {
    */
   localStorage.setItem("colorFavorito", inputColor.value);
 }
+
+
+
+
+const verificarStorage = () => {
+
+  /**
+   * localStorage.getItem("clave"), retorna el valor que tiene 
+   * esa clave, si no hay ningún valor con esa clave, retorna NULL
+   */
+  let colorStorage = localStorage.getItem("colorFavorito");
+  if (colorStorage) {
+    inputColor.value = colorStorage;
+  }
+
+}
+verificarStorage();
