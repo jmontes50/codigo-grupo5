@@ -35,28 +35,59 @@
             </select>
           </div>
           <div class="form-group">
-            <div class="input-group">
+            <label for="">Seleccione Categoría:</label>
+            <div class="input-group mb-2">
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <input id="radioDesarrollo"
-                          type="radio"
-                          aria-label="Radio button for following text input"
-                          name="radioCategoria">
+                  <input id="radioDesarrollo" type="radio" aria-label="Radio button for following text input"
+                    name="radioCategoria" checked>
                 </div>
               </div>
               <label for="radioDesarrollo" class="form-control">Desarrollo</label>
             </div>
-
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <input id="radioUX"
-                          name="radioCategoria"
-                          type="radio"
-                          aria-label="Radio button for following text input">
+                  <input id="radioUX" name="radioCategoria" type="radio"
+                    aria-label="Radio button for following text input">
                 </div>
               </div>
               <label for="radioUX" class="form-control">UX</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary">Crear Curso</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <form>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="">Nombre:</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="">Apellido:</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="">DNI:</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="">Dirección:</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="">Fecha de Nacimiento</label>
+              <input type="date" class="form-control">
             </div>
           </div>
 
