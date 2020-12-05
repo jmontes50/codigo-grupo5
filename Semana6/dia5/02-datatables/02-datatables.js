@@ -1,7 +1,7 @@
 
 $("#table_id").DataTable(
   {
-    dom: 'Bfrtip',
+    dom: 'Blfrtip',
     buttons: [
       'copy', 'excel', 'pdf', "print"
     ],
