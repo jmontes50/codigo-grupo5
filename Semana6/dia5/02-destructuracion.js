@@ -23,3 +23,9 @@ const obtenerCoordenadas = (ciudad) => {
 let [lat, lon] = obtenerCoordenadas("Puno");
 console.log(`Latidud ${lat}`);
 console.log(`Logitud ${lon}`);
+
+// Forma tradicional
+// let arregloResultado = obtenerCoordenadas("Puno");
+// let lat = arregloResultado[0];
+// let lon = arregloResultado[1];
+
