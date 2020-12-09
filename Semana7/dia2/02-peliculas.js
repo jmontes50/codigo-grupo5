@@ -1,4 +1,6 @@
 const populares = document.getElementById("populares");
+const formBusqueda = document.getElementById("formBusqueda");
+const inputBusqueda = document.getElementById("inputBusqueda");
 
 const dibujarPopulares = ({ results = [] }) => {
 
@@ -23,8 +25,6 @@ const dibujarPopulares = ({ results = [] }) => {
   })
 
 }
-
-
 const getPeliculasPopulares = () => {
   const urlTMDB = "https://api.themoviedb.org/3/movie/popular?api_key=105eb79aa1e6df60a2b95878ad2289aa&language=es-ES";
   fetch(urlTMDB).then((peticion) => {
@@ -34,3 +34,23 @@ const getPeliculasPopulares = () => {
   })
 }
 getPeliculasPopulares();
+
+
+formBusqueda.onsubmit = e => {
+  e.preventDefault();
+  let busqueda = inputBusqueda.value;
+  /**
+   * encodeURI(string_con_espacios_y_simbolos)
+   * Codifica un string para que pueda viajar a través de una URL
+   * El valor codificado es retornado
+   */
+  busqueda = encodeURI(busqueda);
+
+  let url = `https://api.themoviedb.org/3/search/movie?api_key=105eb79aa1e6df60a2b95878ad2289aa&language=es-ES&query="${busqueda}"&page=1&include_adult=false`
+  /**
+   * TODO: 
+   * Hacer fetch a la url y dibujar el resultado de las peliculas que 
+   * coincidan con la búsqueda en un div que sea exclusivo de los
+   * resultados de búsqueda
+   */
+}
