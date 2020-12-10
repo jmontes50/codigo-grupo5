@@ -54,3 +54,15 @@ formBusqueda.onsubmit = e => {
    * resultados de búsqueda
    */
 }
+
+inputBusqueda.onkeyup = (e) => {
+
+  let busqueda = inputBusqueda.value.trim();
+  if (busqueda.length < 3) {
+    return;
+  }
+  
+
+  // a continuación hacer la búsqueda por el método fetch
+
+}
