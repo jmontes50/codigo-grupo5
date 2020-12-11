@@ -3,6 +3,9 @@ import { getCategorias, getProductos } from "./servicios.js";
 const productosContainer = document.getElementById("productosContainer");
 const radioCards = document.getElementById("radioCards");
 const radioTabla = document.getElementById("radioTabla");
+const btnCrearProducto = document.getElementById("btnCrearProducto");
+const crearProductoModal = document.getElementById("crearProductoModal");
+const modalCrear = new bootstrap.Modal(crearProductoModal);
 
 let modo = "tabla";//cards
 let productos = [];
@@ -26,6 +29,7 @@ const dibujarProductos = () => {
           <th>Precio Producto</th>
           <th>Stock</th>
           <th>Categoría</th>
+          <th>Imagen</th>
         </tr>
       </thead>`;
     let tbody = document.createElement("tbody");
@@ -37,7 +41,8 @@ const dibujarProductos = () => {
         <td>${prod.prod_nom}</td>
         <td>${prod.prod_pre}</td>
         <td>${prod.prod_stock}</td>
-        <td>${prod.categoria.cat_nom}</td>`;
+        <td>${prod.categoria.cat_nom}</td>
+        <td><img src="${prod.prod_img}" width="100" class="rounded-circle" ></td>`;
       tbody.appendChild(filaTmp);
     });
     tabla.appendChild(tbody);
@@ -61,14 +66,12 @@ const mapearProductos = () => {
   });
 }
 
-
 const getRecursos = async () => {
   productos = await getProductos();
   categorias = await getCategorias();
   mapearProductos();
   dibujarProductos();
 }
-
 
 getRecursos();
 // puedo ir habliltando librerias
@@ -97,3 +100,7 @@ let onCheck = (e) => {
 
 radioCards.onchange = onCheck;
 radioTabla.onchange = onCheck;
+
+btnCrearProducto.onclick = () => {
+  modalCrear.show();
+}
