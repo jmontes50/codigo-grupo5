@@ -1,13 +1,16 @@
 import { getCategorias, getProductos } from "./servicios.js";
 
 const productosContainer = document.getElementById("productosContainer");
+const radioCards = document.getElementById("radioCards");
+const radioTabla = document.getElementById("radioTabla");
 
 let modo = "tabla";//cards
 let productos = [];
 let categorias = [];
 
-
 const dibujarProductos = () => {
+
+  productosContainer.innerHTML = "";
 
   if (modo === "tabla") {
     // dibujar modo tabla
@@ -72,3 +75,25 @@ getRecursos();
 // puedo cargar otra API que me traiga datos del clima
 // puedo ir obteneiendo el localStorage para settear preferencias
 // del usuario
+
+let onCheck = (e) => {
+  // Forma 1
+  // if (e.target.id === "radioTabla") {
+  //   modo = "tabla";
+  // } else {
+  //   modo = "cards";
+  // }
+  // dibujarProductos();
+
+  //Forma 2
+  if (radioTabla.checked === true) {
+    modo = "tabla";
+  } else {
+    modo = "cards";
+  }
+  dibujarProductos();
+}
+
+
+radioCards.onchange = onCheck;
+radioTabla.onchange = onCheck;
