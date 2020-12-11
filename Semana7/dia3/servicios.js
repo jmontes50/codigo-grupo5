@@ -15,3 +15,16 @@ export const getProductos = async () => {
   return data;
 }
 
+export const postProducto = async (objProducto) => {
+
+  let peticion = await fetch(`${url}/producto`, {
+    method: "POST",
+    body: JSON.stringify(objProducto),
+    headers: {
+      "Content-type": "application/json"
+    }
+  });
+  let data = await peticion.json();
+  return data;
+
+}

@@ -32,32 +32,41 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-12">
+              <form id="formCrearProducto">
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="">Nombre Producto:</label>
+                    <input type="text" class="form-control is-invalid" placeholder="Ejm: Juguete Superman"
+                      id="inputCrearNombre">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="">Precio:</label>
+                    <input type="number" class="form-control" id="inputCrearPrecio">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="">Imagen:</label>
+                    <input type="text" class="form-control" placeholder="Ejm: https://...." id="inputCrearImagen">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="">Stock:</label>
+                    <input type="number" class="form-control" id="inputCrearStock">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="">Elija Categoría:</label>
+                    <select name="" id="selectCrearCategoria" class="form-control">
 
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="">Nombre Producto:</label>
-                  <input type="text" class="form-control" placeholder="Ejm: Juguete Superman" id="inputCrearNombre">
+                    </select>
+                  </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="">Precio:</label>
-                  <input type="number" class="form-control" id="inputCrearPrecio">
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <button class="btn btn-primary" id="btnCrear">Crear Producto</button>
+                  </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="">Imagen:</label>
-                  <input type="text" class="form-control" placeholder="Ejm: https://...." id="inputCrearImagen">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="">Stock:</label>
-                  <input type="number" class="form-control" id="inputCrearStock">
-                </div>
-              </div>
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <button class="btn btn-primary" id="btnCrear">Crear Producto</button>
-                </div>
-              </div>
               </form>
             </div>
           </div>
@@ -139,6 +148,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.1/uuid.min.js"></script>
   <script src="./01-productos.js" type="module"></script>
 </body>
 

@@ -1,6 +1,12 @@
-import { getCategorias, getProductos } from "./servicios.js";
+import { getCategorias, getProductos, postProducto } from "./servicios.js";
+const inputCrearNombre = document.getElementById("inputCrearNombre");
+const inputCrearPrecio = document.getElementById("inputCrearPrecio");
+const inputCrearImagen = document.getElementById("inputCrearImagen");
+const inputCrearStock = document.getElementById("inputCrearStock");
+const selectCrearCategoria = document.getElementById("selectCrearCategoria");
 
 const productosContainer = document.getElementById("productosContainer");
+const formCrearProducto = document.getElementById("formCrearProducto");
 const radioCards = document.getElementById("radioCards");
 const radioTabla = document.getElementById("radioTabla");
 const btnCrearProducto = document.getElementById("btnCrearProducto");
@@ -66,11 +72,22 @@ const mapearProductos = () => {
   });
 }
 
+
+const poblarSelectCrearProducto = () => {
+  categorias.forEach(cat => {
+    let optionTmp = document.createElement("option")
+    optionTmp.innerText = cat.cat_nom;
+    optionTmp.value = cat.cat_id;
+    selectCrearCategoria.appendChild(optionTmp);
+  })
+}
+
 const getRecursos = async () => {
   productos = await getProductos();
   categorias = await getCategorias();
   mapearProductos();
   dibujarProductos();
+  poblarSelectCrearProducto();
 }
 
 getRecursos();
@@ -104,3 +121,67 @@ radioTabla.onchange = onCheck;
 btnCrearProducto.onclick = () => {
   modalCrear.show();
 }
+
+
+/**
+ * Función que retorna FALSE si no hay errores
+ * y retorna TRUE si es que hay errores
+ */
+const validarControles = (controles = []) => {
+  let errores = false;
+  controles.forEach((control) => {
+    control.classList.remove("is-invalid");
+    control.classList.add("is-valid")
+    if (control.value.trim() === "") {
+      errores = true;
+      control.classList.add("is-invalid");
+      control.classList.remove("is-valid");
+    }
+  })
+  return errores;
+}
+
+
+formCrearProducto.onsubmit = e => {
+  e.preventDefault();
+  if (validarControles([inputCrearNombre, inputCrearPrecio,
+    inputCrearImagen, inputCrearStock]) === false) {
+    //  entonces, enviar el formulario correctamente a la base de gatos
+
+
+    let objProducto = {
+      "prod_nom": inputCrearNombre.value.trim(),
+      "prod_pre": inputCrearPrecio.value,
+      "prod_stock": inputCrearStock.value,
+      "prod_sku": uuid.v4(),
+      "cat_id": selectCrearCategoria.value,
+      "prod_img": inputCrearImagen.value
+    };
+
+    postProducto(objProducto).then((data) => {
+      console.log(data);
+      //llamamos a los recursos de la base de datos nuevamnete
+      getRecursos();
+      // ocultamos el modal
+      modalCrear.hide();
+      // limpiamos o reseteamos el formulario de Crear
+      formCrearProducto.reset();
+    })
+  }
+}
+
+/**
+ * TAREA
+ * 1. CREAR UN MODAL DE EDITAR PRODUCTO.
+ * 2. En cada producto (tabla/cards) agregar un boton con el texto editar
+ * 3. El boton editar debe arbri el modal EDITAR PRODUCTO con todos los campos
+ *    llenos propios del producto,
+ * 4. Cuando terminemos de modificar el formulario, la tabla/data debe actualizarse
+ *
+ * HINTS: Usar el verbo PUT
+ * - En la petición, enviar el body, los headers y  un query param:
+ * Query Param: URL/producto/:id_del_producto
+ * - Cuando creemos la tabla o los cards con cada producto, crear los botones
+ * y darle el evento onclick a cada boton al momento de crear dichos productos.
+ * Considererar el innertHTML o dejar de usarlo y crear el boton de manera manual
+ */
