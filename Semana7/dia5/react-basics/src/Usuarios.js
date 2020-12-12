@@ -4,7 +4,7 @@ const Usuarios = (props) => {
   console.log(props.users);
   console.log(props.miTitulo);
   let lis = props.users.map((usu) => {
-    return (<Usuario usu={usu} />);
+    return (<Usuario usu={usu} key={usu.id} />);
   })
 
   return (

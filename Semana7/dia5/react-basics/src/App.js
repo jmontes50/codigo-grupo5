@@ -2,12 +2,13 @@ import React from 'react'
 import Header from "./Header";
 import Footer from "./Footer";
 import Usuarios from "./Usuarios";
+import "./Usuario.css"
 const App = () => {
 
   const miTitulo = "El título de mi apliqueishon";
   const libros = ["Cronica de una muerte anunciada", "Ña catita", "Ensayo sobre la ceguera", "Hansel y Gretel", "Siete Semillas", "Narraciones", "La rebelión de Atlas", "El sexto"];
-  let librosLis = libros.map(libro => {
-    return (<li>{libro}</li>)
+  let librosLis = libros.map((libro, i) => {
+    return (<li key={i}>{libro}</li>)
   });
   const users = [
     { id: 1, nombre: "Estrellida", apellido: "Estrada" },
@@ -24,7 +25,12 @@ const App = () => {
   return (
     <>
       <Header />
-      <h1>{miTitulo}</h1>
+      <h1 style={
+        {
+          color: "#444",
+          textAlign: "center"
+        }
+      }>{miTitulo}</h1>
       <div>
         Hola Mundo
       <p>
@@ -40,7 +46,6 @@ const App = () => {
       </div>
       <hr />
       <h2>Productos</h2>
-      <Productos productos={productos} />
       <Footer />
     </>
   )
