@@ -40,4 +40,7 @@
   ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
+- Finalmente, ejecutar el proyecto en react con el siguiente comando: `npm start`
+- Ojo que en la consola, debemos estar dentro de la carpeta del proyecto
+
 
