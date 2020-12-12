@@ -8,7 +8,7 @@
 
 ## Limpiar el proyecto que se crea por defecto
 
-- Borramos los siguientes archivos internos del proyecto
+- Borramos los siguientes archivos internos del proyecto dentro de la carpeta `/src`
   - `App.css`
   - `App.test.js`
   - `reportWebvitals.js`
