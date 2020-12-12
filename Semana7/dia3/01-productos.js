@@ -55,6 +55,27 @@ const dibujarProductos = () => {
     productosContainer.appendChild(tabla);
   } else {
     // dibujar modo cards
+    productos.forEach((pro) => {
+      let card = document.createElement("div");
+      card.classList.add("col-xl-3", "col-lg-3", "col-md-4", "col-sm-6", "mb-3");
+      card.innerHTML = `
+            <div class="card shadow">
+              <img src="http://placehold.it/200X200" alt="" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">
+                  Titulo de la pelicula
+                </h5>
+                <p class="card-text">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos iusto atque! Quo eius
+                  laborum praesentium cumque fugiat
+                </p>
+                <small class="text-muted">
+                  2020-08-12
+                </small>
+              </div>
+            </div>`;
+      productosContainer.appendChild(card);
+    });
   }
 
 }
