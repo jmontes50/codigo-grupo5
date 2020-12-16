@@ -5,3 +5,9 @@ export const getProductos = async () => {
   const data = await peticion.json();
   return data;
 }
+
+export const getUsuarios = async (page) => {
+  const peticion = await fetch(`https://reqres.in/api/users?page=${page}`);
+  const data = await peticion.json();
+  return data;
+}

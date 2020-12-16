@@ -1,25 +1,31 @@
-import React, { useState } from 'react'
-import { getProductos } from './services/servicios'
+import React, { useEffect, useState } from 'react'
+import { getUsuarios } from './services/servicios';
 
 const App = () => {
 
-  const [productos, setProductos] = useState([]);
+  const [pagina, setPagina] = useState(1);
+  const [usuarios, setUsuarios] = useState([]);
 
-  getProductos().then(data => {
-    console.log(data);
-    setProductos(data);
-  });
+  useEffect(() => {
+    getUsuarios(pagina).then(data => {
+      console.log(data);
+      setUsuarios(data.data);
+    });
+  }, [pagina]);
 
-  
   return (
     <div>
       <ul>
         {
-          productos.map(prod => {
-            return <li key={prod.prod_id}>{prod.prod_nom}</li>
+          usuarios.map(usu => {
+            return (<li key={usu.id}>{usu.first_name}</li>)
           })
         }
       </ul>
+      <hr />
+      <button onClick={() => {
+        setPagina(pagina + 1);
+      }}>pagina +1</button>
     </div>
   )
 }
