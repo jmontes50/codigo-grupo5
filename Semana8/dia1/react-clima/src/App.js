@@ -18,18 +18,25 @@ const App = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-2">
+          <div className="col-md-2 flex-centrado">
             <button onClick={() => {
+              // pos > 0 && setPos(pos - 1)
+              if (pos === 0) {
+                return;
+              }
               setPos(pos - 1);
-            }}>{"<"}</button>
+            }} className="btn btn-outline-danger botonFlecha">{"<"}</button>
           </div>
           <div className="col-md-8">
             <CardClima objClima={temperaturas[pos]} />
           </div>
-          <div className="col-md-2">
+          <div className="col-md-2 flex-centrado">
             <button onClick={() => {
+              if (pos === temperaturas.length - 1) {
+                return;
+              }
               setPos(pos + 1);
-            }}>{">"}</button>
+            }} className="btn btn-outline-danger botonFlecha">{">"}</button>
           </div>
         </div>
 
