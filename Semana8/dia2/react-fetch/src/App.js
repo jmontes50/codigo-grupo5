@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { getUsuarios } from './services/servicios';
 
 const App = () => {
-
   const [pagina, setPagina] = useState(1);
   const [usuarios, setUsuarios] = useState([]);
 
