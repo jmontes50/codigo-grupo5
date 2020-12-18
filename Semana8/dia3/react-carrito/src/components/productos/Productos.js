@@ -2,27 +2,43 @@ import React, { useState, useEffect } from 'react'
 import { getProductos } from '../../services/servicios';
 import Producto from './Producto';
 
-const Productos = () => {
+const Productos = ({ termino }) => {
 
   const [productos, setProductos] = useState([]);
 
+  console.log(termino);
+
   useEffect(() => {
-    getProductos().then(data => {
+    console.log("useEffect Productos");
+    getProductos(termino).then(data => {
       console.log(data);
       setProductos(data);
     })
-  }, []);
+  }, [termino]);
 
   return (
-    <div className="row">
-
+    <>
       {
-        productos.map((objProducto) => {
-          return (<Producto key={objProducto.prod_id} objProducto={objProducto} />)
-        })
+        termino.trim().length > 2 ?
+          <div className="row">
+            <div className="col-12">
+              <h3>Resultados para la búsqueda: {termino}</h3>
+            </div>
+          </div>
+          :
+          null
       }
 
-    </div>
+      <div className="row">
+
+        {
+          productos.map((objProducto) => {
+            return (<Producto key={objProducto.prod_id} objProducto={objProducto} />)
+          })
+        }
+
+      </div>
+    </>
   )
 }
 

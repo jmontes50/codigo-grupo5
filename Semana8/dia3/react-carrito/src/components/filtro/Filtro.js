@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Filtro = () => {
+const Filtro = ({ setTermino }) => {
 
   const [buscar, setBuscar] = useState("");
 
@@ -11,6 +11,7 @@ const Filtro = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(buscar);
+    setTermino(buscar);
   }
 
   return (
