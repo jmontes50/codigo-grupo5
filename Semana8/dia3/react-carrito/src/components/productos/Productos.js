@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { getProductos } from '../../services/servicios';
 import Producto from './Producto';
 
-const Productos = ({ termino }) => {
+const Productos = ({ termino, setCarrito }) => {
 
   const [productos, setProductos] = useState([]);
 
@@ -33,7 +33,9 @@ const Productos = ({ termino }) => {
 
         {
           productos.map((objProducto) => {
-            return (<Producto key={objProducto.prod_id} objProducto={objProducto} />)
+            return (<Producto key={objProducto.prod_id}
+              objProducto={objProducto}
+              setCarrito={setCarrito} />)
           })
         }
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Carrito from './components/carrito/Carrito'
 import Filtro from './components/filtro/Filtro'
 import Header from './components/Header'
 import Productos from './components/productos/Productos'
@@ -6,6 +7,7 @@ import Productos from './components/productos/Productos'
 const App = () => {
 
   const [termino, setTermino] = useState("");
+  const [carrito, setCarrito] = useState([]);
 
   return (
     <>
@@ -16,10 +18,11 @@ const App = () => {
             <Filtro setTermino={setTermino} />
           </div>
           <div className="col-md-8">
-            <Productos termino={termino} />
+            <Productos termino={termino}
+              setCarrito={setCarrito} />
           </div>
           <div className="col-md-2">
-            CARRITO
+            <Carrito carrito={carrito} setCarrito={setCarrito} />
           </div>
         </div>
       </main>

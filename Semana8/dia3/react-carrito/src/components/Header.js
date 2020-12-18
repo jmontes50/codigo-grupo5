@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Header = () => {
+  console.log("Ejecutando el HEADER");
   return (
     <header>
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
