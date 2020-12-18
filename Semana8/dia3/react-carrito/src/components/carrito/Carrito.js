@@ -12,7 +12,8 @@ const Carrito = ({ carrito = [], setCarrito }) => {
               Tu carrito está vacío
             </p> :
             carrito.map((objProducto) => {
-              return (<CarritoItem objProducto={objProducto} />)
+              return (<CarritoItem objProducto={objProducto}
+                setCarrito={setCarrito} key={objProducto.prod_id} />)
             })
         }
       </div>

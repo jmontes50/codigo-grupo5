@@ -4,7 +4,33 @@ const Producto = ({ objProducto, setCarrito }) => {
 
   const agregarAlCarrito = () => {
     setCarrito(prevState => {
-      return [...prevState, objProducto];
+      // Verificiar si el producto se encuentra en el carrito previamente
+      let productoActual = prevState.find((producto) => {
+        if (producto.prod_id === objProducto.prod_id) {
+          return producto;
+        }
+      });
+      // productoActual pudo haber sido undifined, por lo que revisaremos 
+      // si había o no había un producto de ese tipo en el carrito antiguo
+      if (productoActual) {
+
+        let carritoNuevo = prevState.map((producto) => {
+          if (producto.prod_id === objProducto.prod_id) {
+            producto.cant += 1;
+          }
+          return producto;
+        });
+        return carritoNuevo;
+
+      } else {
+        return [
+          ...prevState,
+          {
+            ...objProducto,
+            cant: 1
+          }
+        ]
+      }
     })
   }
 
