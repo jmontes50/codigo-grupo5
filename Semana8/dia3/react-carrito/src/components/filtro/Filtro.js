@@ -16,6 +16,11 @@ const Filtro = ({ setTermino }) => {
 
   return (
     <div className="card shadow">
+      <div className="card-header">
+        <h4 className="card-title text-center">
+          Filtro
+        </h4>
+      </div>
       <div className="card-body">
         <form onSubmit={handleSubmit}>
           <div className="form-group">

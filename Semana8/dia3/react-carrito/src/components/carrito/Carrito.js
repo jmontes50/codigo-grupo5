@@ -4,6 +4,11 @@ import CarritoItem from './CarritoItem'
 const Carrito = ({ carrito = [], setCarrito }) => {
   return (
     <div className="card">
+      <div className="card-header">
+        <h4 className="card-title text-center">
+          Carrito de Compras
+        </h4>
+      </div>
       <div className="card-body">
         {
           carrito.length === 0 ?
