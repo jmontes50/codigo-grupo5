@@ -11,12 +11,12 @@ const Pronostico = ({ objClima }) => {
         <div className="card-body">
           <div className="row">
             <div className="col-md-6 flex-centrado">
-              <p className="display-4 text-center">
+              <h2 className="text-center">
                 {objClima.main.temp} &#8451;
-            </p>
+              </h2>
             </div>
             <div className="col-md-6 flex-centrado">
-              <img src={`http://openweathermap.org/img/wn/${objClima.weather[0].icon}@4x.png`} alt="" />
+              <img src={`http://openweathermap.org/img/wn/${objClima.weather[0].icon}@2x.png`} alt="" />
             </div>
           </div>
           <div className="row">
