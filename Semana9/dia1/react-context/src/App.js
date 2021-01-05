@@ -1,26 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react'
 import EditarPerfil from './components/EditarPerfil';
 import Header from './components/Header';
 import Perfil from './components/Perfil';
-import UsuarioContext from "./contextos/usuarioContext";
+import CarritoState from './contextos/carritoState';
+import UsuarioState from './contextos/usuarioState';
 
 const App = () => {
 
-  const [usu, setUsu] = useState("Gabriela")
-
   return (
-    <UsuarioContext.Provider value={{
-      nombre: usu,
-      setNombre: setUsu
-    }}>
-      <Header />
-      <hr />
-      <main>
-        <Perfil />
+    <CarritoState>
+      <UsuarioState>
+        <Header />
         <hr />
-        <EditarPerfil />
-      </main>
-    </UsuarioContext.Provider>
+        <main>
+          <Perfil />
+          <hr />
+          <EditarPerfil />
+        </main>
+      </UsuarioState>
+    </CarritoState>
   )
 }
 

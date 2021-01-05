@@ -2,6 +2,7 @@ import React from 'react'
 import CarritoItem from './CarritoItem'
 
 const Carrito = ({ carrito = [], setCarrito }) => {
+  // usar o consumir la variable de contexto CARRITOCONTEXT
   return (
     <div className="card">
       <div className="card-header">
