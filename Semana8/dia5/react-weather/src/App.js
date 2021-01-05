@@ -20,6 +20,9 @@ const App = () => {
       return;
     }
     getClimaPorCiudad(ciudad).then(data => {
+      //TODO analizar a data.cod
+      // si data.cod===200 continuamos
+      // sino, setPronosticos([]);
       console.log(data.list);
       setPronosticos(data.list);
     })

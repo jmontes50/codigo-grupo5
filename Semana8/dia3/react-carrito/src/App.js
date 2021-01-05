@@ -5,10 +5,8 @@ import Header from './components/Header'
 import Productos from './components/productos/Productos'
 
 const App = () => {
-
   const [termino, setTermino] = useState("");
   const [carrito, setCarrito] = useState([]);
-
   return (
     <>
       <Header />
