@@ -11,12 +11,21 @@ const Productos = () => {
 
           {
             cargandoProductos ?
-              <div>Cargando...</div> :
+              <div className="alert alert-info text-center" role="alert">
+                <h4 className="alert-heading">Cargando productos</h4>
+                <div className="spinner-border" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
+                <p className="mb-0"></p>
+              </div>
+              :
               (
                 <>
-                  <button className="btn btn-warning" onClick={() => {
-                    obtenerProductos();
-                  }}>REFRESCAR TABLA</button>
+                  <div className="text-right mb-3">
+                    <button className="btn btn-success" onClick={() => {
+                      obtenerProductos();
+                    }}>REFRESCAR TABLA</button>
+                  </div>
                   <div className="table-responsive">
                     <table className="table table-bordered table-striped">
                       <thead>

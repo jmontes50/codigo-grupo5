@@ -4,7 +4,7 @@ import Productos from './components/Productos'
 
 const ProductoScreen = () => {
   return (
-    <main className="container-fluid">
+    <main className="container-fluid mt-5">
       <div className="row">
         <Productos />
         <ProductoForm />
