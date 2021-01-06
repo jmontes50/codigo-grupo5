@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const HeaderGlobal = () => {
   return (
     <header>
@@ -9,14 +9,14 @@ const HeaderGlobal = () => {
           aria-expanded="false" aria-label="Toggle navigation"></button>
         <div className="collapse navbar-collapse" id="collapsibleNavId">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li className="nav-item active">
-              <Link className="nav-link" to="/">Home</Link>
+            <li className="nav-item">
+              <NavLink className="nav-link" activeClassName="active" exact to="/">Home</NavLink>
             </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to="/categorias">Categorias</Link>
+            <li className="nav-item ">
+              <NavLink className="nav-link" activeClassName="active" to="/categorias">Categorias</NavLink>
             </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to="/productos">Productos</Link>
+            <li className="nav-item ">
+              <NavLink className="nav-link" activeClassName="active" to="/productos">Productos</NavLink>
             </li>
 
           </ul>
