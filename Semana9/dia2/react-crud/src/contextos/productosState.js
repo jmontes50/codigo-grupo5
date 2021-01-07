@@ -6,6 +6,7 @@ const ProductosState = ({ children }) => {
 
   const [productos, setProductos] = useState([]);
   const [cargandoProductos, setCargandoProductos] = useState(true);
+  const [modalEditar, setModalEditar] = useState(false);
 
   const obtenerProductos = () => {
 
@@ -26,6 +27,8 @@ const ProductosState = ({ children }) => {
     <ProductosContext.Provider value={{
       productos: productos,
       cargandoProductos: cargandoProductos,
+      modalEditar: modalEditar,
+      setModalEditar: setModalEditar,
       obtenerProductos: obtenerProductos
     }}>
       {children}

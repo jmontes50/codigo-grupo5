@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import ProductoForm from './components/ProductoForm'
 import Productos from './components/Productos'
+import { Modal } from "react-bootstrap";
+import { useContext } from 'react';
+import ProductosContext from '../../contextos/productosContext';
 
 const ProductoScreen = () => {
 
   const [formCrear, setFormCrear] = useState(false);
+  const { modalEditar, setModalEditar } = useContext(ProductosContext)
 
   return (
     <main className="container-fluid mt-5">
@@ -23,6 +27,19 @@ const ProductoScreen = () => {
           formCrear && <ProductoForm />
         }
       </div>
+
+      <Modal show={modalEditar} onHide={() => {
+        setModalEditar(false);
+      }}>
+        <Modal.Header closeButton>
+          <Modal.Title>Editar Producto</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Woohoo, you're reading this text in a modal!
+          </Modal.Body>
+
+      </Modal>
+
     </main>
   )
 }

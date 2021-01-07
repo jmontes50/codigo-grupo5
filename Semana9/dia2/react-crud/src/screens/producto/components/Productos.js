@@ -2,7 +2,10 @@ import React, { useContext } from 'react'
 import ProductosContext from '../../../contextos/productosContext';
 
 const Productos = () => {
-  const { productos, cargandoProductos, obtenerProductos } = useContext(ProductosContext);
+  const { productos,
+    cargandoProductos,
+    obtenerProductos,
+    setModalEditar } = useContext(ProductosContext);
 
   return (
     <section className="col-md-8">
@@ -51,7 +54,13 @@ const Productos = () => {
                               <td>{objProducto.prod_sku}</td>
                               <td>{objProducto.cat_id}</td>
                               <td><img src={objProducto.prod_img} alt="" width="65" /></td>
-                              <td>Acciones</td>
+                              <td>
+                                <button className="btn btn-secondary" onClick={() => {
+                                  setModalEditar(true);
+                                }}>
+                                  Editar
+                                </button>
+                              </td>
                             </tr>)
                           })
                         }
