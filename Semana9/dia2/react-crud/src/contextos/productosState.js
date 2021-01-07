@@ -7,6 +7,7 @@ const ProductosState = ({ children }) => {
   const [productos, setProductos] = useState([]);
   const [cargandoProductos, setCargandoProductos] = useState(true);
   const [modalEditar, setModalEditar] = useState(false);
+  const [productoEditar, setProductoEditar] = useState({});
 
   const obtenerProductos = () => {
 
@@ -28,6 +29,8 @@ const ProductosState = ({ children }) => {
       productos: productos,
       cargandoProductos: cargandoProductos,
       modalEditar: modalEditar,
+      productoEditar: productoEditar,
+      setProductoEditar: setProductoEditar,
       setModalEditar: setModalEditar,
       obtenerProductos: obtenerProductos
     }}>

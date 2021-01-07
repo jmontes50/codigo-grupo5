@@ -5,7 +5,8 @@ const Productos = () => {
   const { productos,
     cargandoProductos,
     obtenerProductos,
-    setModalEditar } = useContext(ProductosContext);
+    setModalEditar,
+    setProductoEditar } = useContext(ProductosContext);
 
   return (
     <section className="col-md-8">
@@ -56,6 +57,7 @@ const Productos = () => {
                               <td><img src={objProducto.prod_img} alt="" width="65" /></td>
                               <td>
                                 <button className="btn btn-secondary" onClick={() => {
+                                  setProductoEditar(objProducto);
                                   setModalEditar(true);
                                 }}>
                                   Editar

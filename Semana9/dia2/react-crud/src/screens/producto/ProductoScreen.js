@@ -4,6 +4,7 @@ import Productos from './components/Productos'
 import { Modal } from "react-bootstrap";
 import { useContext } from 'react';
 import ProductosContext from '../../contextos/productosContext';
+import ProductoFormEditar from './components/ProductoFormEditar';
 
 const ProductoScreen = () => {
 
@@ -35,8 +36,8 @@ const ProductoScreen = () => {
           <Modal.Title>Editar Producto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Woohoo, you're reading this text in a modal!
-          </Modal.Body>
+          <ProductoFormEditar />
+        </Modal.Body>
 
       </Modal>
 
