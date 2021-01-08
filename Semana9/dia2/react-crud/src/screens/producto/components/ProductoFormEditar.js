@@ -1,19 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Swal from "sweetalert2";
+import ProductosContext from '../../../contextos/productosContext';
+import { putProducto } from '../../../servicios/productosService';
 
-
-const formularioVacio = {
-  prod_nom: "",
-  prod_pre: 0,
-  prod_sku: 0,
-  prod_img: "",
-  cat_id: 1,
-  prod_stock: 0,
-}
 
 const ProductoFormEditar = () => {
 
-  const [formulario, setFormulario] = useState(formularioVacio)
+  const { productoEditar, setModalEditar, obtenerProductos } = useContext(ProductosContext);
+  const [formulario, setFormulario] = useState(productoEditar);
 
   const handleChange = e => {
     setFormulario({
@@ -24,15 +18,26 @@ const ProductoFormEditar = () => {
 
   const submit = (e) => {
     e.preventDefault();
+
     Swal.fire({
-      title: "¿Seguro de crear el producto?",
+      title: `¿Seguro de editar el producto ${productoEditar.prod_nom} por ${formulario.prod_nom}?`,
       icon: "question",
       text: "Los cambios se guardarán en la base de datos",
       showCancelButton: true
     }).then(rpta => {
       if (rpta.isConfirmed) {
-        //consumir el servicio
-
+        putProducto(formulario).then(data => {
+          if (data.prod_id) {
+            setModalEditar(false);
+            obtenerProductos();
+            Swal.fire({
+              title: "Editado!",
+              icon: "success",
+              timer: 700,
+              showCancelButton: false
+            });
+          }
+        });
       }
     })
 
@@ -40,6 +45,16 @@ const ProductoFormEditar = () => {
 
   return (
     <form onSubmit={submit}>
+
+      <div className="form-group">
+        <label htmlFor="prod_id">Id:</label>
+        <input type="text"
+          id="prod_id"
+          name="prod_id"
+          className="form-control"
+          value={formulario.prod_id}
+          onChange={handleChange} readOnly />
+      </div>
       <div className="form-group">
         <label htmlFor="prod_nom">Nombre:</label>
         <input type="text"
@@ -78,7 +93,6 @@ const ProductoFormEditar = () => {
           name="prod_sku"
           value={formulario.prod_sku}
           onChange={handleChange}
-          readOnly
           className="form-control" />
       </div>
       <div className="form-group">
@@ -101,7 +115,7 @@ const ProductoFormEditar = () => {
       </div>
       <div className="form-group">
         <button className="btn btn-primary"
-          type="submit">Crear Producto</button>
+          type="submit">Editar Producto</button>
       </div>
     </form>
 

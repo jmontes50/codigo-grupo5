@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import ProductosContext from '../../../contextos/productosContext';
-
+import Swal from "sweetalert2";
+import { deleteProducto } from '../../../servicios/productosService';
 const Productos = () => {
   const { productos,
     cargandoProductos,
@@ -8,6 +9,29 @@ const Productos = () => {
     setModalEditar,
     setProductoEditar } = useContext(ProductosContext);
 
+  const eliminar = prod_id => {
+    Swal.fire({
+      title: "¿Seguro de eliminar el producto?",
+      icon: "error",
+      text: "Los cambios serán irreversibles joven!",
+      showCancelButton: true
+    }).then(rpta => {
+      if (rpta.isConfirmed) {
+        deleteProducto(prod_id).then(data => {
+          if (data.prod_id) {
+            obtenerProductos();
+            Swal.fire({
+              title: "Eliminado!",
+              icon: "success",
+              timer: 700,
+              showCancelButton: false,
+              position: "top-end"
+            })
+          }
+        })
+      }
+    })
+  }
   return (
     <section className="col-md-8">
       <div className="card shadow">
@@ -47,23 +71,31 @@ const Productos = () => {
                       <tbody>
                         {
                           productos.map((objProducto) => {
-                            return (<tr key={objProducto.prod_sku}>
-                              <td>{objProducto.prod_id}</td>
-                              <td>{objProducto.prod_nom}</td>
-                              <td>{objProducto.prod_pre}</td>
-                              <td>{objProducto.prod_stock}</td>
-                              <td>{objProducto.prod_sku}</td>
-                              <td>{objProducto.cat_id}</td>
-                              <td><img src={objProducto.prod_img} alt="" width="65" /></td>
-                              <td>
-                                <button className="btn btn-secondary" onClick={() => {
-                                  setProductoEditar(objProducto);
-                                  setModalEditar(true);
-                                }}>
-                                  Editar
-                                </button>
-                              </td>
-                            </tr>)
+                            return (
+                              <tr key={objProducto.prod_id}>
+                                <td>{objProducto.prod_id}</td>
+                                <td>{objProducto.prod_nom}</td>
+                                <td>{objProducto.prod_pre}</td>
+                                <td>{objProducto.prod_stock}</td>
+                                <td>{objProducto.prod_sku}</td>
+                                <td>{objProducto.cat_id}</td>
+                                <td><img src={objProducto.prod_img} alt="" width="65" /></td>
+                                <td>
+                                  <div className="d-flex">
+                                    <button className="btn btn-secondary mr-2" onClick={() => {
+                                      setProductoEditar(objProducto);
+                                      setModalEditar(true);
+                                    }}>
+                                      Editar
+                                    </button>
+                                    <button className="btn btn-danger" onClick={() => {
+                                      eliminar(objProducto.prod_id);
+                                    }}>
+                                      Eliminar
+                                    </button>
+                                  </div>
+                                </td>
+                              </tr>)
                           })
                         }
                       </tbody>

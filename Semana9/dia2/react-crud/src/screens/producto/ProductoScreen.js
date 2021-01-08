@@ -5,7 +5,6 @@ import { Modal } from "react-bootstrap";
 import { useContext } from 'react';
 import ProductosContext from '../../contextos/productosContext';
 import ProductoFormEditar from './components/ProductoFormEditar';
-
 const ProductoScreen = () => {
 
   const [formCrear, setFormCrear] = useState(false);

@@ -2,19 +2,20 @@ import React, { useContext, useState } from 'react'
 import Swal from "sweetalert2";
 import ProductosContext from '../../../contextos/productosContext';
 import { postProducto } from '../../../servicios/productosService';
+import { v4 as uuidv4 } from 'uuid';
 
 const formularioVacio = {
   prod_nom: "",
   prod_pre: 0,
-  prod_sku: 0,
   prod_img: "",
   cat_id: 1,
   prod_stock: 0,
 }
-
 const ProductoForm = () => {
+  // RENOVAR SKU
+  const [formulario, setFormulario] = useState({ ...formularioVacio })
+  const [sku, setSku] = useState(uuidv4());
 
-  const [formulario, setFormulario] = useState(formularioVacio)
   const { obtenerProductos } = useContext(ProductosContext);
 
   const handleChange = e => {
@@ -34,10 +35,11 @@ const ProductoForm = () => {
     }).then(rpta => {
       if (rpta.isConfirmed) {
         //consumir el servicio
-        postProducto(formulario).then(data => {
+        postProducto({ ...formulario, prod_sku: sku }).then(data => {
           //verificando que un producto se haya creado
           if (data.prod_id) {
             setFormulario(formularioVacio);
+            setSku(uuidv4());
             obtenerProductos();
             Swal.fire({
               title: "Hecho!",
@@ -56,8 +58,8 @@ const ProductoForm = () => {
 
 
   return (
-    <section className="col-md-4 animate__animated animate__fadeInRight">
-      <div className="card shadow">
+    <section className="col-md-4 animate__animated animate__fadeIn">
+      <div div className="card shadow" >
         <div className="card-body">
           <form onSubmit={submit}>
             <div className="form-group">
@@ -96,8 +98,7 @@ const ProductoForm = () => {
                 type="text"
                 id="prod_sku"
                 name="prod_sku"
-                value={formulario.prod_sku}
-                onChange={handleChange}
+                value={sku}
                 readOnly
                 className="form-control" />
             </div>
@@ -126,7 +127,8 @@ const ProductoForm = () => {
           </form>
         </div>
       </div>
-    </section>
+    </section >
+
   )
 }
 
