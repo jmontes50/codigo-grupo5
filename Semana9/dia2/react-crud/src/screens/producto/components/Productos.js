@@ -1,13 +1,17 @@
 import React, { useContext } from 'react'
 import ProductosContext from '../../../contextos/productosContext';
+import CategoriasContext from '../../../contextos/categoriasContext';
+
 import Swal from "sweetalert2";
 import { deleteProducto } from '../../../servicios/productosService';
 const Productos = () => {
-  const { productos,
+  const {
+    productos,
     cargandoProductos,
     obtenerProductos,
     setModalEditar,
     setProductoEditar } = useContext(ProductosContext);
+  const { categorias } = useContext(CategoriasContext);
 
   const eliminar = prod_id => {
     Swal.fire({
@@ -78,7 +82,11 @@ const Productos = () => {
                                 <td>{objProducto.prod_pre}</td>
                                 <td>{objProducto.prod_stock}</td>
                                 <td>{objProducto.prod_sku}</td>
-                                <td>{objProducto.cat_id}</td>
+                                <td>
+                                  {
+                                    (categorias.find(objCategoria => +objCategoria.cat_id === +objProducto.cat_id))?.cat_nom
+                                  }
+                                </td>
                                 <td><img src={objProducto.prod_img} alt="" width="65" /></td>
                                 <td>
                                   <div className="d-flex">

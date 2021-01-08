@@ -3,12 +3,13 @@ import Swal from "sweetalert2";
 import ProductosContext from '../../../contextos/productosContext';
 import { postProducto } from '../../../servicios/productosService';
 import { v4 as uuidv4 } from 'uuid';
+import CategoriasContext from '../../../contextos/categoriasContext';
 
 const formularioVacio = {
   prod_nom: "",
   prod_pre: 0,
   prod_img: "",
-  cat_id: 1,
+  cat_id: 0,
   prod_stock: 0,
 }
 const ProductoForm = () => {
@@ -17,6 +18,7 @@ const ProductoForm = () => {
   const [sku, setSku] = useState(uuidv4());
 
   const { obtenerProductos } = useContext(ProductosContext);
+  const { categorias } = useContext(CategoriasContext);
 
   const handleChange = e => {
     setFormulario({
@@ -104,13 +106,19 @@ const ProductoForm = () => {
             </div>
             <div className="form-group">
               <label htmlFor="cat_id">Categoria:</label>
-              <input
-                type="number"
-                id="cat_id"
-                name="cat_id"
-                value={formulario.cat_id}
-                onChange={handleChange}
-                className="form-control" />
+              <select name="cat_id" id="cat_id" value={formulario.cat_id}
+                className="form-control" onChange={handleChange}>
+                <option value="0">--Seleccione--</option>
+                {
+                  categorias.map(objCategoria => {
+                    return <option value={objCategoria.cat_id} key={objCategoria.cat_id}>
+                      {objCategoria.cat_nom}
+                    </option>
+                  })
+                }
+
+              </select>
+
             </div>
             <div className="form-group">
               <label htmlFor="prod_img">Imagen:</label>

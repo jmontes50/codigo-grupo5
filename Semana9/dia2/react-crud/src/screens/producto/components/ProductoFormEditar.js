@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react'
 import Swal from "sweetalert2";
 import ProductosContext from '../../../contextos/productosContext';
+import CategoriasContext from '../../../contextos/categoriasContext';
 import { putProducto } from '../../../servicios/productosService';
 
 
 const ProductoFormEditar = () => {
 
   const { productoEditar, setModalEditar, obtenerProductos } = useContext(ProductosContext);
+  const { categorias } = useContext(CategoriasContext);
   const [formulario, setFormulario] = useState(productoEditar);
+
 
   const handleChange = e => {
     setFormulario({
@@ -97,13 +100,22 @@ const ProductoFormEditar = () => {
       </div>
       <div className="form-group">
         <label htmlFor="cat_id">Categoria:</label>
-        <input
-          type="number"
-          id="cat_id"
-          name="cat_id"
-          value={formulario.cat_id}
+        <select id="cat_id" name="cat_id" value={formulario.cat_id}
           onChange={handleChange}
-          className="form-control" />
+          className="form-control" >
+          <option value="0">--Seleccione--</option>
+          {
+            categorias.map(objCategoria => {
+              return <option value={objCategoria.cat_id} key={objCategoria.cat_id}>
+                {objCategoria.cat_nom}
+              </option>
+            })
+          }
+
+        </select>
+
+
+
       </div>
       <div className="form-group">
         <label htmlFor="prod_img">Imagen:</label>

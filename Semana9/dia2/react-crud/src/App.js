@@ -7,19 +7,22 @@ import CategoriaScreen from './screens/categoria/CategoriaScreen';
 import HomeScreen from './screens/home/HomeScreen';
 import HeaderGlobal from './components/HeaderGlobal';
 import ProductosState from './contextos/productosState';
+import CategoriasState from './contextos/categoriasState';
 
 const App = () => {
   return (
-    <ProductosState>
-      <BrowserRouter>
-        <HeaderGlobal />
-        <Switch>
-          <Route path="/productos" component={ProductoScreen} />
-          <Route path="/categorias" component={CategoriaScreen} />
-          <Route path="/" component={HomeScreen} />
-        </Switch>
-      </BrowserRouter>
-    </ProductosState>
+    <CategoriasState>
+      <ProductosState>
+        <BrowserRouter>
+          <HeaderGlobal />
+          <Switch>
+            <Route path="/productos" component={ProductoScreen} />
+            <Route path="/categorias" component={CategoriaScreen} />
+            <Route path="/" component={HomeScreen} />
+          </Switch>
+        </BrowserRouter>
+      </ProductosState>
+    </CategoriasState>
 
   )
 }
