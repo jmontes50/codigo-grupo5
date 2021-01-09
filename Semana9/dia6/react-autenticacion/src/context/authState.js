@@ -1,0 +1,66 @@
+import React, { useEffect, useState } from 'react'
+import { postVerificarToken } from '../services/authService';
+import AuthContext from './authContext'
+
+const AuthState = ({ children }) => {
+
+  const [auth, setAuth] = useState({
+    autenticado: false,
+    usu_nom: null,
+    usu_id: null,
+    token: null,
+    cargando: true
+  });
+
+  const iniciarSesionContext = token => {
+
+    // guardamos el token en el localstorage porque
+    // cuando actualizamos la página, el localstorage no se borra.
+    localStorage.setItem("token", token);
+
+    const payload = token.split(".")[1];
+    const payloadDesencriptado = window.atob(payload);
+    const payloadJSON = JSON.parse(payloadDesencriptado);
+    setAuth({
+      autenticado: true,
+      usu_nom: payloadJSON.usu_nom,
+      usu_id: payloadJSON.usu_id,
+      token: token,
+      cargando: false
+    });
+  }
+
+  const iniciarSesionConLocalStorage = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      //TODO verificar si el token tenía tiempo de vida
+      // a través del BACKEND
+      postVerificarToken(token).then(data => {
+        console.log(data);
+        // SI EL TOKEN ES VÁLIDO, INICIAR SESIÓN EN EL STATE DEL CONTEXT
+      })
+    } else {
+      // No hacer nada o redireccionar al home
+    }
+  }
+  useEffect(() => {
+    iniciarSesionConLocalStorage();
+  }, [])
+
+
+
+  return (
+    <AuthContext.Provider value={{
+      autenticado: auth.autenticado,
+      usu_nom: auth.usu_nom,
+      usu_id: auth.usu_id,
+      token: auth.token,
+      cargando: auth.cargando,
+      iniciarSesionContext: iniciarSesionContext
+    }}>
+      {children}
+    </AuthContext.Provider>
+  )
+}
+
+export default AuthState
