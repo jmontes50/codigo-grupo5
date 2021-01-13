@@ -48,6 +48,7 @@ body {
   flex: 25%;
   padding: 1rem;
   max-width: 25%;
+  border: solid 1px;
 }
 
 .card {

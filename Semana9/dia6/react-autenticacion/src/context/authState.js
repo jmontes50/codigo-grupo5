@@ -37,17 +37,44 @@ const AuthState = ({ children }) => {
       // a través del BACKEND
       postVerificarToken(token).then(data => {
         console.log(data);
+        if (data.ok) {
+          const payload = token.split(".")[1];
+          const payloadDesencriptado = window.atob(payload);
+          const payloadJSON = JSON.parse(payloadDesencriptado);
+          setAuth({
+            autenticado: true,
+            usu_nom: payloadJSON.usu_nom,
+            usu_id: payloadJSON.usu_id,
+            token: token,
+            cargando: false
+          });
+        } else {
+          //Sí había token, pero ya había caducado o el token estaba alterado
+          localStorage.removeItem("token");
+          setAuth({
+            autenticado: false,
+            usu_nom: null,
+            usu_id: null,
+            token: null,
+            cargando: false
+          })
+        }
         // SI EL TOKEN ES VÁLIDO, INICIAR SESIÓN EN EL STATE DEL CONTEXT
       })
     } else {
       // No hacer nada o redireccionar al home
+      setAuth({
+        autenticado: false,
+        usu_nom: null,
+        usu_id: null,
+        token: null,
+        cargando: false
+      })
     }
   }
   useEffect(() => {
     iniciarSesionConLocalStorage();
   }, [])
-
-
 
   return (
     <AuthContext.Provider value={{
