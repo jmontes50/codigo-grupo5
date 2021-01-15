@@ -72,6 +72,7 @@ const PosState = ({ children }) => {
     <PosContext.Provider value={{
       mesa_global: state.mesa_global,
       categoria_global: state.categoria_global,
+      pedidos: state.pedidos,
       seleccionarCategoriaGlobal: seleccionarCategoriaGlobal,
       seleccionarMesaGlobal: seleccionarMesaGlobal,
       incrementarPlatoAPedido: incrementarPlatoAPedido

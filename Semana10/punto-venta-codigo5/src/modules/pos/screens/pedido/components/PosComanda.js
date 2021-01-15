@@ -1,55 +1,46 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import PosContext from '../../../../../context/pos/posContext'
+import PosComandaItem from './PosComandaItem'
 
 const PosComanda = () => {
+
+  const { pedidos, mesa_global } = useContext(PosContext);
+
+  let pedidoActual = null;
+
+  if (mesa_global) {
+    pedidoActual = pedidos.find(objPedido => objPedido.objMesa.mesa_id === mesa_global.mesa_id);
+  }
+
+
   return (
     <div className="comanda">
-      <h4 className="comanda__mesa">Mesa 01</h4>
+      <h4 className="comanda__mesa">{mesa_global ? `Mesa ${mesa_global.mesa_nro}` : "Sin mesa seleccionada"}</h4>
       <p className="comanda__usuario">Carlos Jimenez</p>
       <hr />
 
-      <ul className="comanda__lista">
-        <li className="comanda__item">
-          <p className="comanda__nombre">
-            <span><strong>Arroz Chaufa de Pollo</strong></span>
-            <span>Precio: S/ 35.00</span>
-          </p>
-          <p className="comanda__cantidad">01</p>
-          <p className="comanda__precio">
-            <strong>S/ 35.00</strong>
-          </p>
-        </li>
-        <li className="comanda__item">
-          <p className="comanda__nombre">
-            <span><strong>Lomo Saltado</strong></span>
-            <span>Precio: S/ 35.00</span>
-          </p>
-          <p className="comanda__cantidad">01</p>
-          <p className="comanda__precio">
-            <strong>S/ 35.00</strong>
-          </p>
-        </li>
-        <li className="comanda__item">
-          <p className="comanda__nombre">
-            <span><strong>Café expreso</strong></span>
-            <span>Precio: S/ 5.00</span>
-          </p>
-          <p className="comanda__cantidad">01</p>
-          <p className="comanda__precio">
-            <strong>S/ 5.00</strong>
-          </p>
-        </li>
-        <li className="comanda__item">
-          <p className="comanda__nombre">
-            <span><strong>Porc. Torta Helada</strong></span>
-            <span>Precio: S/ 8.00</span>
-          </p>
-          <p className="comanda__cantidad">01</p>
-          <p className="comanda__precio">
-            <strong>S/ 8.00</strong>
-          </p>
-        </li>
-      </ul>
-      <button className="boton boton-success boton-block">PAGAR</button>
+      {
+        !mesa_global ?
+          (<div>Seleccione una mesa</div>) :
+          pedidoActual ?
+            (<>
+              <ul className="comanda__lista">
+
+                {
+                  pedidoActual.platos.map(objPlato => {
+                    return (<PosComandaItem objPlato={objPlato} />)
+                  })
+                }
+
+              </ul>
+              <button className="boton boton-success boton-block">PAGAR</button>
+            </>) :
+            <div>
+              No hay pedidos en la mesa {mesa_global.mesa_nro} 😥
+            </div>
+
+      }
+
     </div>
   )
 }
