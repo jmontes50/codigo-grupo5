@@ -28,7 +28,30 @@ const PosState = ({ children }) => {
     // global seleccionada estuviera presente en un pedido del arreglo de pedidos),
     // en caso contrario, el objPedidoActual(linea 24) sería "undefined"
     if (objPedidoActual) {
-      // significa que la mesa_global actual, ya tenía un pedido
+      // significa que la mesa_global actual, ya tenía un pedido}
+      // Vamos a analizar si el plato que queremos agregar al pedido, ya existía
+      let platoPedido =
+        objPedidoActual.platos.find((plato) => plato.plato_id === objPlato.plato_id)
+
+      // Preguntamos si el plato que estuvimos buscando, ya se encontraba 
+      // en el arreglo de platos, debemos autmentar una unidad a la cantidad.
+      // en caso contrario, significa que la mesa sí tenía platos, pero no 
+      // tenía un plato como el que queremos agregar
+      if (platoPedido) {
+        // ya había uno o más platos del plato que queremos agregar
+
+      } else {
+        // la mesa tenía platos, pero no como el que queremos agregar
+        objPedidoActual.platos.push({
+          ...objPlato,
+          cantidad: 1
+        });
+        dispatch({
+          type: "ACTUALIZAR_PEDIDOS",
+          data: pedidos
+        })
+      }
+
 
     } else {
       // significa que la mesa_global actual, está vacía, no tenía ningún pedido
