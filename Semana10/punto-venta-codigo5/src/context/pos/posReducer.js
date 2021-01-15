@@ -13,6 +13,12 @@ const PosReducer = (stateActual, action) => {
       mesa_global: action.data
     }
   }
+  if (action.type === "ACTUALIZAR_PEDIDOS") {
+    return {
+      ...stateActual,
+      pedidos: action.data
+    }
+  }
   return { ...stateActual }
 }
 export default PosReducer;

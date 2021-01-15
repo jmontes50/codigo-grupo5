@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import PosContext from '../../../../../context/pos/posContext';
 
 const PosPlato = ({ objPlato }) => {
+  const { incrementarPlatoAPedido } = useContext(PosContext);
   return (
     <div className="carta__plato">
       <img
@@ -10,7 +12,10 @@ const PosPlato = ({ objPlato }) => {
       <span className="carta__precio">S/ {objPlato.plato_pre}</span>
       <div className="carta__botones">
         <button className="boton boton-outline-primary boton-restar">-1</button>
-        <button className="boton boton-outline-primary boton-sumar">+1</button>
+        <button className="boton boton-outline-primary boton-sumar"
+          onClick={() => {
+            incrementarPlatoAPedido(objPlato);
+          }}>+1</button>
       </div>
     </div>
   )
