@@ -31,7 +31,7 @@ const PosState = ({ children }) => {
       // significa que la mesa_global actual, ya tenía un pedido}
       // Vamos a analizar si el plato que queremos agregar al pedido, ya existía
       let platoPedido =
-        objPedidoActual.platos.find((plato) => plato.plato_id === objPlato.plato_id)
+        objPedidoActual.platos.find(plato => plato.plato_id === objPlato.plato_id);
 
       // Preguntamos si el plato que estuvimos buscando, ya se encontraba 
       // en el arreglo de platos, debemos autmentar una unidad a la cantidad.
@@ -39,7 +39,11 @@ const PosState = ({ children }) => {
       // tenía un plato como el que queremos agregar
       if (platoPedido) {
         // ya había uno o más platos del plato que queremos agregar
-
+        platoPedido.cantidad += 1;
+        dispatch({
+          type: "ACTUALIZAR_PEDIDOS",
+          data: pedidos
+        })
       } else {
         // la mesa tenía platos, pero no como el que queremos agregar
         objPedidoActual.platos.push({
@@ -76,6 +80,31 @@ const PosState = ({ children }) => {
       });
     }
   }
+
+  const restarPlatoAPedido = objPlato => {
+    let { pedidos, mesa_global } = state;
+    if (!mesa_global) return;
+    let objPedidoActual =
+      pedidos.find(objPedido => objPedido.objMesa.mesa_id === mesa_global.mesa_id);
+    if (objPedidoActual) {
+      let platoPedido =
+        objPedidoActual.platos.find(plato => plato.plato_id === objPlato.plato_id);
+      if (platoPedido) {
+        platoPedido.cantidad -= 1;
+        if (platoPedido.cantidad === 0) {
+          objPedidoActual.platos = objPedidoActual.platos.filter(plato => plato.plato_id !== objPlato.plato_id);
+          if (objPedidoActual.platos.length === 0) {
+            pedidos = pedidos.filter(pedido => pedido.objMesa.mesa_id !== mesa_global.mesa_id);
+          }
+        }
+        dispatch({
+          type: "ACTUALIZAR_PEDIDOS",
+          data: pedidos
+        });
+      }
+    }
+  }
+
   const seleccionarCategoriaGlobal = objCategoria => {
     // intentar seleccionar o settear una categoria global
     dispatch({
@@ -96,6 +125,7 @@ const PosState = ({ children }) => {
       mesa_global: state.mesa_global,
       categoria_global: state.categoria_global,
       pedidos: state.pedidos,
+      restarPlatoAPedido: restarPlatoAPedido,
       seleccionarCategoriaGlobal: seleccionarCategoriaGlobal,
       seleccionarMesaGlobal: seleccionarMesaGlobal,
       incrementarPlatoAPedido: incrementarPlatoAPedido
