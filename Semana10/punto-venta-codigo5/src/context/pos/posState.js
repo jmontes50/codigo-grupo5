@@ -10,6 +10,15 @@ const PosState = ({ children }) => {
     pedidos: []
   });
 
+  const borrarPedido = () => {
+    let { mesa_global, pedidos } = state;
+    pedidos = pedidos.filter(pedido => pedido.objMesa.mesa_id !== mesa_global.mesa_id);
+    dispatch({
+      type: "ACTUALIZAR_PEDIDOS",
+      data: pedidos
+    })
+  }
+
   const incrementarPlatoAPedido = objPlato => {
     const { pedidos, mesa_global } = state;
     if (!mesa_global) return;
@@ -125,6 +134,7 @@ const PosState = ({ children }) => {
       mesa_global: state.mesa_global,
       categoria_global: state.categoria_global,
       pedidos: state.pedidos,
+      borrarPedido: borrarPedido,
       restarPlatoAPedido: restarPlatoAPedido,
       seleccionarCategoriaGlobal: seleccionarCategoriaGlobal,
       seleccionarMesaGlobal: seleccionarMesaGlobal,
