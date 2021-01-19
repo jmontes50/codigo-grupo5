@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { MDBDataTableV5 } from "mdbreact";
 import { getPedidos } from '../../../../services/pedidoService';
 
-const AdminPedidosScreen = () => {
+const AdminPedidosScreen = ({ history }) => {
+
 
   const [datatable, setDatatable] = useState({
     columns: [
@@ -32,9 +33,12 @@ const AdminPedidosScreen = () => {
             total_platos: pedido.PedidoPlatos.reduce((valorAnt, objActual) => {
               return valorAnt + +objActual.pedidoplato_cant;
             }, 0),
-            acciones: <button className="btn btn-dark">Ver Pedido</button>
+            acciones: <button className="btn btn-dark" onClick={() => {
+              history.push(`/admin/pedidos/${pedido.pedido_id}`);
+            }}>Ver Pedido</button>
           }
         });
+
         setDatatable({
           ...datatable,
           rows: filas
@@ -59,7 +63,9 @@ const AdminPedidosScreen = () => {
         <div className="col">
           <div className="card shadow">
             <div className="card-body">
+
               <MDBDataTableV5 data={datatable} />
+
             </div>
           </div>
         </div>
