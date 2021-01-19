@@ -7,9 +7,17 @@ const PosState = ({ children }) => {
   const [state, dispatch] = useReducer(PosReducer, {
     categoria_global: null,
     mesa_global: null,
-    pedidos: []
+    pedidos: [],
+    modal_boleta: false,
   });
 
+  const setModalBoleta = (valor) => {
+    dispatch({
+      type: "MODAL_BOLETA",
+      data: valor
+    })
+  }
+  
   const borrarPedido = () => {
     let { mesa_global, pedidos } = state;
     pedidos = pedidos.filter(pedido => pedido.objMesa.mesa_id !== mesa_global.mesa_id);
@@ -18,7 +26,6 @@ const PosState = ({ children }) => {
       data: pedidos
     })
   }
-
   const incrementarPlatoAPedido = objPlato => {
     const { pedidos, mesa_global } = state;
     if (!mesa_global) return;
@@ -89,7 +96,6 @@ const PosState = ({ children }) => {
       });
     }
   }
-
   const restarPlatoAPedido = objPlato => {
     let { pedidos, mesa_global } = state;
     if (!mesa_global) return;
@@ -113,7 +119,6 @@ const PosState = ({ children }) => {
       }
     }
   }
-
   const seleccionarCategoriaGlobal = objCategoria => {
     // intentar seleccionar o settear una categoria global
     dispatch({
@@ -134,6 +139,10 @@ const PosState = ({ children }) => {
       mesa_global: state.mesa_global,
       categoria_global: state.categoria_global,
       pedidos: state.pedidos,
+
+      modal_boleta: state.modal_boleta,
+      setModalBoleta: setModalBoleta,
+
       borrarPedido: borrarPedido,
       restarPlatoAPedido: restarPlatoAPedido,
       seleccionarCategoriaGlobal: seleccionarCategoriaGlobal,

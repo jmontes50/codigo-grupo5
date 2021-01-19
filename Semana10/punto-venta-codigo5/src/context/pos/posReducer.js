@@ -19,6 +19,12 @@ const PosReducer = (stateActual, action) => {
       pedidos: action.data
     }
   }
+  if (action.type === "MODAL_BOLETA") {
+    return {
+      ...stateActual,
+      modal_boleta: action.data
+    }
+  }
   return { ...stateActual }
 }
 export default PosReducer;

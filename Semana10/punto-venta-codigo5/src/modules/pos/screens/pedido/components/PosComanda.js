@@ -5,10 +5,12 @@ import PosComandaItem from './PosComandaItem';
 import moment from "moment";
 import { v4 as uuidv4 } from "uuid";
 import Swal from "sweetalert2";
+import PosModalBoleta from './PosModalBoleta';
 
 const PosComanda = () => {
 
-  const { pedidos, mesa_global, borrarPedido } = useContext(PosContext);
+  const { pedidos, mesa_global, borrarPedido,
+    modal_boleta, setModalBoleta } = useContext(PosContext);
 
   let pedidoActual = null;
 
@@ -17,6 +19,9 @@ const PosComanda = () => {
   }
 
   const pagar = () => {
+    setModalBoleta(true);
+    return;
+
     // armar el objeto pedido
     /**
      * {
@@ -71,6 +76,7 @@ const PosComanda = () => {
               timer: 700,
               position: "top-right"
             });
+
             borrarPedido();
           }
         })
@@ -94,13 +100,11 @@ const PosComanda = () => {
           pedidoActual ?
             (<>
               <ul className="comanda__lista">
-
                 {
                   pedidoActual.platos.map(objPlato => {
                     return (<PosComandaItem objPlato={objPlato} key={objPlato.plato_id} />)
                   })
                 }
-
               </ul>
               <button className="boton boton-success boton-block" onClick={() => {
                 pagar();
@@ -112,6 +116,7 @@ const PosComanda = () => {
 
       }
 
+      <PosModalBoleta />
     </div>
   )
 }
