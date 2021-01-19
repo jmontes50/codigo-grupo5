@@ -11,3 +11,9 @@ export const postPedido = async objPedido => {
   const data = await peticion.json();
   return data;
 }
+
+export const getPedidos = async () => {
+  const peticion = await fetch(`${URL_BACKEND}/pedido`);
+  const data = await peticion.json();
+  return data;
+}
