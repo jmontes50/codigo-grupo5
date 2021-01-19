@@ -17,3 +17,9 @@ export const getPedidos = async () => {
   const data = await peticion.json();
   return data;
 }
+
+export const getPedidoById = async (pedido_id) => {
+  const peticion = await fetch(`${URL_BACKEND}/pedido/${pedido_id}`);
+  const data = await peticion.json();
+  return data;
+}
