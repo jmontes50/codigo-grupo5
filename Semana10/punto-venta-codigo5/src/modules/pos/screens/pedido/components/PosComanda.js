@@ -9,8 +9,7 @@ import PosModalBoleta from './PosModalBoleta';
 
 const PosComanda = () => {
 
-  const { pedidos, mesa_global, borrarPedido,
-    modal_boleta, setModalBoleta } = useContext(PosContext);
+  const { pedidos, mesa_global, borrarPedido, setModalBoleta } = useContext(PosContext);
 
   let pedidoActual = null;
 
@@ -19,9 +18,6 @@ const PosComanda = () => {
   }
 
   const pagar = () => {
-    setModalBoleta(true);
-    return;
-
     // armar el objeto pedido
     /**
      * {
@@ -76,8 +72,8 @@ const PosComanda = () => {
               timer: 700,
               position: "top-right"
             });
-
-            borrarPedido();
+            setModalBoleta(true);
+            //borrarPedido();
           }
         })
       }
