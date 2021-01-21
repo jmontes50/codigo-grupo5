@@ -1,0 +1,42 @@
+@charset "UTF-8";
+/*Estilos Aside*/
+.menu {
+  max-width: 241px;
+  background-color: #3c3c3c; }
+  .menu .menu__lista {
+    list-style: none; }
+    .menu .menu__lista .menu__item {
+      flex-direction: row;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px; }
+      .menu .menu__lista .menu__item .menu__link {
+        color: white;
+        text-decoration: none; }
+        .menu .menu__lista .menu__item .menu__link i {
+          margin-right: 8px; }
+      .menu .menu__lista .menu__item:hover {
+        background-color: #4c4c4c;
+        cursor: pointer; }
+        .menu .menu__lista .menu__item:hover .menu__link {
+          color: #f87f69; }
+
+/*
+ Estilos para la aplicación
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+h1 {
+  font-size: 22px;
+  font-family: sans-serif; }
+
+body {
+  background-color: #eee;
+  font-family: arial; }
+
+.boton {
+  background-color: #f87f69; }

@@ -1,0 +1,26 @@
+/*Estilos Aside*/
+.menu {
+	max-width: 241px;
+	background-color: $fondo-oscuro;
+	.menu__lista {
+		list-style: none;
+		.menu__item {
+			@include flex-center();
+			height: 40px;
+			.menu__link {
+				color: white;
+				text-decoration: none;
+				i {
+					margin-right: 8px;
+				}
+			}
+			&:hover {
+				background-color: #4c4c4c;
+				cursor: pointer;
+				.menu__link {
+					color: $color-primario;
+				}
+			}
+		}
+	}
+}

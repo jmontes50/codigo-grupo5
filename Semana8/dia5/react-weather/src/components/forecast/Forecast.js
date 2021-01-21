@@ -3,7 +3,7 @@ import Pronostico from './Pronostico'
 
 const Forecast = ({ pronosticos }) => {
   return (
-    <div className="row">
+    <div className="row forecast-container">
       {
         pronosticos.map((objClima) => {
           return <Pronostico objClima={objClima} />

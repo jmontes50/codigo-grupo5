@@ -1,0 +1,27 @@
+@import "variables";
+@import "mixins";
+
+@import "menu";
+
+/*
+ Estilos para la aplicación
+*/
+
+* {
+	// estilos para todo el proyecto
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+h1 {
+	font-size: $size-h1;
+	font-family: $fuente-titulo;
+}
+body {
+	background-color: #eee;
+	font-family: $fuente-texto;
+}
+
+.boton {
+	background-color: $color-primario;
+}
