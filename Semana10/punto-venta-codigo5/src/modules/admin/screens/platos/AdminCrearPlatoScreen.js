@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+import { postPlato } from '../../../../services/platoService';
 
 const AdminCrearPlatoScreen = () => {
 
@@ -7,6 +8,8 @@ const AdminCrearPlatoScreen = () => {
     plato_pre: 0,
     categoria_id: 1
   });
+
+  const referenciaImagen = useRef();
 
   const handleChange = e => {
     setFormulario({
@@ -17,7 +20,14 @@ const AdminCrearPlatoScreen = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(formulario);
+    postPlato(formulario).then(data => {
+      setFormulario({
+        plato_nom: "",
+        plato_pre: 0,
+        categoria_id: 1
+      })
+    })
+
   }
 
   return (
@@ -37,7 +47,7 @@ const AdminCrearPlatoScreen = () => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="">Imagen:</label>
-                  <input type="file" className="form-control" />
+                  <input ref={referenciaImagen} type="file" className="form-control" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="">Precio:</label>
@@ -48,6 +58,11 @@ const AdminCrearPlatoScreen = () => {
                   <label htmlFor="">Categoria:</label>
                   <input type="number" className="form-control"
                     name="categoria_id" value={formulario.categoria_id} onChange={handleChange} />
+                </div>
+                <div className="form-group">
+                  <button className="btn btn-primary" type="submit">
+                    Crear Plato
+                  </button>
                 </div>
               </form>
             </div>
