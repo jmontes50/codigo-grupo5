@@ -15,6 +15,19 @@ export const postPlato = async objPlato => {
   return data;
 }
 
-export const postImagenPlato = async imagen => {
-  
+export const postImagenPlato = async (imagen, plato_id) => {
+
+  let miFormData = new FormData();
+  miFormData.append("imagen", imagen);
+  miFormData.append("plato_id", plato_id);
+
+  const peticion = await fetch(`${URL_BACKEND}/plato/imagen/upload`, {
+    method: "POST",
+    body: miFormData,
+    // headers: {
+    //   "Content-type": "multipart/form-data; boundary=—-WebKitFormBoundaryfgtsKTYLsT7PNUVD"
+    // }
+  });
+  const data = await peticion.json();
+  return data;
 }

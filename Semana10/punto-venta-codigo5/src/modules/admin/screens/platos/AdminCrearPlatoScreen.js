@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { postPlato } from '../../../../services/platoService';
+import { postImagenPlato, postPlato } from '../../../../services/platoService';
 
 const AdminCrearPlatoScreen = () => {
 
@@ -21,11 +21,16 @@ const AdminCrearPlatoScreen = () => {
   const handleSubmit = e => {
     e.preventDefault();
     postPlato(formulario).then(data => {
-      setFormulario({
-        plato_nom: "",
-        plato_pre: 0,
-        categoria_id: 1
-      })
+      if (data.ok) {
+        postImagenPlato(referenciaImagen.current.files[0], data.content.plato_id).then(rpta => {
+          console.log(rpta);
+          setFormulario({
+            plato_nom: "",
+            plato_pre: 0,
+            categoria_id: 1
+          })
+        })
+      }
     })
 
   }
